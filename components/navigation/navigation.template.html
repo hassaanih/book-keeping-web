@@ -1,0 +1,160 @@
+<!-- Main navbar -->
+<div class="navbar navbar-expand-md navbar-static bg-dark-800 navbar-custom justify-content-between align-items-center"
+	ng-show="$ctrl.isLogin()" ng-init="init()">
+	<div class="navbar-brand">
+		<a href="index.html" class="d-inline-block">
+			<img src="assets/theme/global/images/header-logo.svg" alt="">
+		</a>
+	</div>
+
+	<!-- <div class="collapse navbar-collapse" id="navbar-mobile">
+	</div> -->
+	<div class="navbar navbar-expand-md navbar-custom" ng-show="$ctrl.isLogin()">
+		<div class="text-center d-md-none w-100">
+			<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse"
+				data-target="#navbar-navigation">
+				<i class="icon-unfold mr-2"></i>
+				Navigation
+			</button>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-navigation">
+			<ul class="nav navbar-nav">
+				<li class="nav-item">
+					<a href="#!/dashboard" routerLinkActive="active" class="navbar-nav-link d-flex align-items-center active-nav">
+						<!-- <i class="icon-home4 mr-2"></i> -->
+						<span class="mr-2">
+							<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M7.5 15V10.5H10.5V15H14.25V9H16.5L9 2.25L1.5 9H3.75V15H7.5Z" fill="white" />
+							</svg>
+						</span>
+						Dashboard
+					</a>
+				</li>
+				<li class="nav-item dropdown" ng-show="$ctrl.isSuperAdmin">
+					<span class="navbar-nav-link dropdown-toggle d-flex align-items-center" data-toggle="dropdown">
+						<!-- <i class="icon-grid mr-2"></i> -->
+						<span class="mr-2">
+							<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M9 9C10.6575 9 12 7.6575 12 6C12 4.3425 10.6575 3 9 3C7.3425 3 6 4.3425 6 6C6 7.6575 7.3425 9 9 9ZM9 10.5C6.9975 10.5 3 11.505 3 13.5V15H15V13.5C15 11.505 11.0025 10.5 9 10.5Z"
+									fill="white" />
+							</svg>
+						</span>
+						Users
+					</span>
+					<div class="dropdown-menu">
+						<a href="#!/user/customer" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
+							Customers</a>
+						<a href="#!/user/kitchen" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
+							Kitchen</a>
+						<a href="#!/user/sales" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i> Order
+							Taker</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown" ng-show="$ctrl.isSuperAdmin">
+					<span class="navbar-nav-link dropdown-toggle d-flex align-items-center" data-toggle="dropdown">
+						<!-- <i class="icon-grid mr-2"></i> -->
+						<span class="mr-2">
+							<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M15 1.5H3C2.25 1.5 1.5 2.175 1.5 3V5.2575C1.5 5.7975 1.8225 6.2625 2.25 6.525V15C2.25 15.825 3.075 16.5 3.75 16.5H14.25C14.925 16.5 15.75 15.825 15.75 15V6.525C16.1775 6.2625 16.5 5.7975 16.5 5.2575V3C16.5 2.175 15.75 1.5 15 1.5ZM11.25 10.5H6.75V9H11.25V10.5ZM15 5.25H3V3L15 2.985V5.25Z"
+									fill="white" />
+							</svg>
+						</span>
+						Manage Content
+					</span>
+					<div class="dropdown-menu">
+						<a href="#!/product" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
+							Products</a>
+						<a href="#!/package/list" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
+							Packages</a>
+						<div class="dropdown-divider"></div>
+						<a href="#!/productcategory/list" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
+							Product - Categories</a>
+						<a href="#!/productpackagecategory/list" routerLinkActive="active" class="dropdown-item"><i
+								class="icon-grid"></i> Package - Categories</a>
+
+						<a href="#!/productquotationcategory/list" routerLinkActive="active" class="dropdown-item"><i
+								class="icon-grid"></i> Quotation - Categories</a>
+						<div class="dropdown-divider"></div>
+						<!-- <a href="#!/coupon" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
+							Coupon</a> -->
+						<div class="dropdown-divider"></div>
+						<a href="#!/faqs" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
+							FAQ's</a>
+					</div>
+				</li>
+				<!-- <li class="nav-item dropdown">
+					<span class="navbar-nav-link dropdown-toggle d-flex align-items-center" data-toggle="dropdown">
+						<i class="icon-grid mr-2"></i>
+						<span class="mr-2">
+							<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M13.5 9.74997H12.99L11.49 11.25H12.9225L14.25 12.75H3.75L5.085 11.25H6.6225L5.1225 9.74997H4.5L2.25 12V15C2.25 15.825 2.9175 16.5 3.7425 16.5H14.25C15.075 16.5 15.75 15.8325 15.75 15V12L13.5 9.74997ZM12.75 5.96247L9.0375 9.67497L6.3825 7.01997L10.095 3.30747L12.75 5.96247ZM9.57 1.71747L4.7925 6.49497C4.5 6.78747 4.5 7.25997 4.7925 7.55247L8.505 11.265C8.7975 11.5575 9.27 11.5575 9.5625 11.265L14.3325 6.49497C14.625 6.20247 14.625 5.72997 14.3325 5.43747L10.62 1.72497C10.335 1.42497 9.8625 1.42497 9.57 1.71747Z"
+									fill="white" />
+							</svg>
+						</span>
+						Sales
+					</span>
+					<div class="dropdown-menu">
+						<a href="#!/order" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
+							Orders</a>
+						<a href="#!/quotation" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
+							Quotations</a>
+						<div class="dropdown-divider"></div>
+						<a href="#!/fashionstyles" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i> Commisions</a>
+
+					</div>
+				</li> -->
+				<li class="nav-item" ng-show="$ctrl.isSuperAdmin">
+					<a href="#!/settinglist" routerLinkActive="active" class="navbar-nav-link d-flex align-items-center">
+						<!-- <i class="icon-home4 mr-2"></i> -->
+						<span class="mr-2">
+							<i class="icon-gear"></i>
+						</span>
+						Settings
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="navbar-nav">
+		<li class="nav-item dropdown dropdown-user">
+			<span class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
+				<img src="./assets/theme/global/images/placeholders/placeholder.jpg" class="rounded-circle mr-2" height="34"
+					alt="">
+				<span ng-bind="$ctrl.user.full_name"></span>
+			</span>
+
+			<div class="dropdown-menu dropdown-menu-right">
+				<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
+				<a href="#!/auth/logout" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+			</div>
+		</li>
+	</ul>
+</div>
+<!-- /main navbar -->
+
+<!-- /secondary navbar -->
+<div class="d-block float-right p-1">
+	<div class="alert alert-success border-0 alert-dismissible" ng-repeat="notify in $ctrl.notifications">
+		<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+		<span class="font-weight-semibold" ng-bind="notify.action"> New</span>
+	</div>
+</div>
+
+
+<!-- <ul class="nav navbar-nav ml-md-auto align-self-start">
+				<li class="nav-item dropdown">
+					<span class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-cog3"></i>
+						<span class="d-md-none ml-2">Settings</span>
+					</span>
+	
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="#!/configurationlist" class="dropdown-item"><i class="icon-gear"></i> All settings</a>
+					</div>
+				</li>
+			</ul> -->

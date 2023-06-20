@@ -1,0 +1,172 @@
+<section class="dashboard-section-wrapper pl-3 pr-3 pb-3" ng-init="$ctrl.init({pieChart2: 'pie_nested-2', pieChart: 'pie_nested', barGraph: 'bar'})">
+    <div class="dashboard-header-section-wrapper">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="dashboard-content-header mb-3">
+                <h1 class="m-0"><span class="text-capitalize" ng-bind='$ctrl.user.user_type_name|uppercase'></span>
+                    DASHBOARD</h1>
+                <p class="m-0">Welcome back, <span class="admin-name" ng-bind='$ctrl.user.full_name'></span></p>
+            </div>
+            <!-- <div class="dashboard-generate-report">
+                <div class="generate-report d-flex align-items-center">
+                    <a class="report-btn  d-flex align-items-center justify-content-center" href="#">
+                        <span class="report-icon">
+                            <svg width="13" height="16" viewBox="0 0 13 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.66634 0.666992H1.66634C0.933008 0.666992 0.333008 1.26699 0.333008 2.00033V11.3337H1.66634V2.00033H9.66634V0.666992ZM8.99967 3.33366H4.33301C3.59967 3.33366 3.00634 3.93366 3.00634 4.66699L2.99967 14.0003C2.99967 14.7337 3.59301 15.3337 4.32634 15.3337H11.6663C12.3997 15.3337 12.9997 14.7337 12.9997 14.0003V7.33366L8.99967 3.33366ZM4.33301 14.0003V4.66699H8.33301V8.00033H11.6663V14.0003H4.33301Z"
+                                    fill="white" />
+                            </svg>
+                        </span>
+                        <p class="m-0 ml-1">Generate report</p>
+                    </a>
+                    <span class="setting-icon ml-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13.3546 8.7048C13.3846 8.4798 13.3996 8.2473 13.3996 7.9998C13.3996 7.75981 13.3846 7.5198 13.3471 7.2948L14.8696 6.1098C15.0046 6.0048 15.0421 5.8023 14.9596 5.6523L13.5196 3.1623C13.4296 2.9973 13.2421 2.9448 13.0771 2.9973L11.2846 3.7173C10.9096 3.4323 10.5121 3.1923 10.0696 3.0123L9.79959 1.1073C9.76959 0.927305 9.61959 0.799805 9.43959 0.799805H6.55959C6.37959 0.799805 6.23709 0.927305 6.20709 1.1073L5.93709 3.0123C5.49459 3.1923 5.08959 3.4398 4.72209 3.7173L2.92959 2.9973C2.76459 2.9373 2.57709 2.9973 2.48709 3.1623L1.05459 5.6523C0.964594 5.8098 0.994594 6.0048 1.14459 6.1098L2.66709 7.2948C2.62959 7.5198 2.59959 7.7673 2.59959 7.9998C2.59959 8.23231 2.61459 8.4798 2.65209 8.7048L1.12959 9.8898C0.994594 9.99481 0.957094 10.1973 1.03959 10.3473L2.47959 12.8373C2.56959 13.0023 2.75709 13.0548 2.92209 13.0023L4.71459 12.2823C5.08959 12.5673 5.48709 12.8073 5.92959 12.9873L6.19959 14.8923C6.23709 15.0723 6.37959 15.1998 6.55959 15.1998H9.43959C9.61959 15.1998 9.76959 15.0723 9.79209 14.8923L10.0621 12.9873C10.5046 12.8073 10.9096 12.5673 11.2771 12.2823L13.0696 13.0023C13.2346 13.0623 13.4221 13.0023 13.5121 12.8373L14.9521 10.3473C15.0421 10.1823 15.0046 9.99481 14.8621 9.8898L13.3546 8.7048ZM7.99959 10.6998C6.51459 10.6998 5.29959 9.48481 5.29959 7.9998C5.29959 6.5148 6.51459 5.2998 7.99959 5.2998C9.48459 5.2998 10.6996 6.5148 10.6996 7.9998C10.6996 9.48481 9.48459 10.6998 7.99959 10.6998Z"
+                                fill="black" />
+                        </svg>
+                    </span>
+                    <span class="down-arrow ml-2">
+                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.5575 0.442383L5 3.87738L8.4425 0.442383L9.5 1.49988L5 5.99988L0.5 1.49988L1.5575 0.442383Z"
+                                fill="black" />
+                        </svg>
+                    </span>
+                </div>
+            </div> -->
+        </div>
+        <div class="order-counter-wrapper">
+            <div class="content">
+                <div class="row justify-content-between">
+                    <h3><span class="font-weight-semibold">Delivery</span></h3>
+                </div>
+                <div class="row justify-content-around">
+                    <div class="delivery-counter col-6 col-lg-2 p-1">
+                        <p class="days-counter m-0 ml-2 mt-1">Today</p>
+                        <h2 class="d-flex justify-content-center m-0"><span
+                                ng-bind='$ctrl.dashboard.today_orders'></span></h2>
+                        <p class="d-flex justify-content-center"><span
+                                ng-bind="$ctrl.dashboard.today | date:'dd MMM yyyy'"></span></p>
+                    </div>
+                    <div class="delivery-counter col-6 col-lg-2 p-1 ">
+                        <p class="days-counter m-0 ml-2 mt-1">Tomorrow</p>
+                        <h2 class="d-flex justify-content-center m-0"><span
+                                ng-bind='$ctrl.dashboard.tomorrow_orders'></span></h2>
+                        <p class="dates-counter d-flex justify-content-center"><span
+                                ng-bind="$ctrl.dashboard.tomorrow | date:'dd MMM yyyy'"></span></p>
+                    </div>
+                    <div class="delivery-counter col-6 col-lg-2 p-1 ">
+                        <p class="days-counter m-0 ml-2 mt-1">This Week</p>
+                        <h2 class="d-flex justify-content-center m-0"><span
+                                ng-bind='$ctrl.dashboard.this_week_orders'></span></h2>
+                        <p class="dates-counter d-flex justify-content-center text-center"><span
+                                ng-bind="$ctrl.dashboard.this_week_start | date:'dd MMM yyyy'"></span> - <span
+                                ng-bind="$ctrl.dashboard.this_week_end | date:'dd MMM yyyy'"></span></p>
+                    </div>
+                    <div class="delivery-counter col-6 col-lg-2 p-1 ">
+                        <p class="days-counter m-0 ml-2 mt-1">This Month</p>
+                        <h2 class="d-flex justify-content-center m-0"><span
+                                ng-bind='$ctrl.dashboard.this_month_orders'></span></h2>
+                        <p class="dates-counter d-flex justify-content-center text-center"><span
+                                ng-bind="$ctrl.dashboard.this_month | date:'MMM yyyy'"></span></p>
+                    </div>
+                    <div class="delivery-counter col-6 col-lg-2 p-1 ">
+                        <p class="days-counter m-0 ml-2 mt-1">This Year</p>
+                        <h2 class="d-flex justify-content-center m-0"><span
+                                ng-bind='$ctrl.dashboard.this_year_orders'></span></h2>
+                        <p class="dates-counter d-flex justify-content-center"><span
+                                ng-bind="$ctrl.dashboard.this_year | date:'yyyy'"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="p-3">
+    <order></order>
+</section>
+<section class="p-3">
+    <quotation></quotation>
+</section>
+<section class="p-3" ng-show="$ctrl.user.user_type_id!=$ctrl.Constant.UserType.KITCHEN">
+    <refund-list></refund-list>
+</section>
+
+<section class="p-3" ng-show="$ctrl.user.user_type_id!=$ctrl.Constant.UserType.KITCHEN">
+    <div class="row">
+        <div class="col-xl-12">
+            <h1 class="card-title font-weight-bold">Revenue</h1>
+            <div class="card bg-white">
+                <div class="card-header header-elements-inline">
+                    <div class="header-elements">
+                        <!-- <div class="list-icons">
+                            <a class="list-icons-item" data-action="collapse"></a>
+                            <a class="list-icons-item" data-action="reload"></a>
+                            <a class="list-icons-item" data-action="remove"></a>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="chart-container">
+                        <div class="chart has-fixed-height" id="bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="p-3" ng-show="$ctrl.user.user_type_id!=$ctrl.Constant.UserType.KITCHEN">
+    <h1 class="card-title font-weight-bold">Progress Summaries</h1>
+    <div class="row">
+        <div class="col-xl-6">
+
+            <!-- Nested pie chart -->
+            <div class="card bg-white">
+                <div class="card-header header-elements-inline">
+                    <div class="header-elements">
+                        <!-- <div class="list-icons">
+                            <a class="list-icons-item" data-action="collapse"></a>
+                            <a class="list-icons-item" data-action="reload"></a>
+                            <a class="list-icons-item" data-action="remove"></a>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="chart-container">
+                        <div class="chart has-fixed-height" id="pie_nested"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /nested pie chart -->
+
+        </div>
+        <div class="col-xl-6">
+
+            <!-- Nested pie chart -->
+            <div class="card bg-white">
+                <div class="card-header header-elements-inline">
+                    <!-- <div class="header-elements">
+                         <div class="list-icons">
+                            <a class="list-icons-item" data-action="collapse"></a>
+                            <a class="list-icons-item" data-action="reload"></a>
+                            <a class="list-icons-item" data-action="remove"></a>
+                        </div>
+                    </div> -->
+                </div>
+
+                <div class="card-body">
+                    <div class="chart-container">
+                        <div class="chart has-fixed-height" id="pie_nested-2"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /nested pie chart -->
+
+        </div>
+    </div>
+</section>

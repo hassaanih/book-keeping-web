@@ -1,0 +1,5 @@
+1. run following command from project dirctory console
+  > npm install
+2. copy env.localhost.js as env.js
+3. moidify env.js for API endpoint
+
