@@ -39,7 +39,7 @@ angular.module("myApp").config([
       // .when("/order", { template: "<order></order>" })
       // .when("/faqs", { template: "<faq-list></faq-list>" })
       // .when("/settinglist", { template: "<setting-list></setting-list>" })
-      .otherwise("/dashboard");
+      .otherwise("/auth/signin");
 
     // request interceptor
     var $window = $windowProvider.$get();
