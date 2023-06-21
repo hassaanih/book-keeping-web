@@ -1,14 +1,16 @@
 'use strict';
 
 angular.
-  module('navigation').
+  module('component').
   component('navigation', {
     templateUrl: 'components/navigation/navigation.template.html',
     controller: [
       '$scope',
-      'NotificationService',
+      // 'NotificationService',
       'Constant',
-      function NavigationController($scope,NotificationService, Constant) {
+      function NavigationController($scope,
+        // NotificationService, 
+        Constant) {
         var ctrl = this;
         ctrl.user = {"full_name" : "Admin"};
         ctrl.notifications = [];

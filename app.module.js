@@ -5,10 +5,7 @@ var appz = angular.module('myApp', [
   'ngSanitize',
   'ngRoute',
   'core',
-  'auth',
-  'navigation',
-  'dashboard',
-  
+  'component',
   'ui.select',
   'angularjs-dropdown-multiselect',
 ]);

@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("auth").component("auth", {
+angular.module("component").component("auth", {
   templateUrl: "components/auth/auth.template.html",
   controller: [
     "$rootScope",
@@ -8,7 +8,11 @@ angular.module("auth").component("auth", {
     "$location",
     "$routeParams",
 
-    function AuthController($rootScope, UserService, $location, $routeParams) {
+    function AuthController(
+      $rootScope, 
+      UserService, 
+      $location, 
+      $routeParams) {
       var ctrl = this;
       ctrl.user = {};
 
@@ -36,12 +40,12 @@ angular.module("auth").component("auth", {
       ctrl.login = function () {
         UserService.login(ctrl.user).then(
           function successCallback(response) {
-            if (response.data.auth_token) {
-              // console.log(response);
-              localStorage.setItem("auth_token", response.data.auth_token);
-              localStorage.setItem("full_name", response.data.user.first_name + ' ' + response.data.user.last_name);
-              localStorage.setItem("user_type_id", response.data.user.user_type_id);
-              localStorage.setItem("user_type_name", response.data.user.user_type_name);
+            console.log(response);
+            if (response.data.user.access_token) {
+              localStorage.setItem("auth_token", response.data.user.access_token);
+              localStorage.setItem("full_name", response.data.user.name);
+              // localStorage.setItem("user_type_id", response.data.user.user_type_id);
+              // localStorage.setItem("user_type_name", response.data.user.user_type_name);
               $rootScope.$broadcast('UserService:login');
               console.log('$rootScope.$broadcast(UserService:login)');
 

@@ -1,47 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" ng-app="myApp" manifest="demo.appcache">
+  <head>
+    <meta charset="utf-8" />
+    <title>Catering Online Admin Panel</title>
 
-<head>
-	<meta charset="utf-8">
-	<title>Catering Online Admin Panel</title>
-	<link href="assets/theme/global/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/theme/layout_1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/theme/layout_1/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/theme/layout_1/css/layout.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/theme/layout_1/css/components.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/theme/layout_1/css/colors.min.css" rel="stylesheet" type="text/css">
-	<link type="text/css" rel="stylesheet" href="assets/theme/global/js/plugins/angular-ui-select/select.min.css">
-	<link type="text/css" rel="stylesheet" href="assets/theme/global/js/plugins/fancybox/css/fancybox.min.css">
-	<link rel="stylesheet" href="assets/theme/global/js/plugins/select2/css/select2.css">
-	<link rel="stylesheet" href="assets/theme/global/js/plugins/select2/css/selectize.default.css">
-	<link rel="stylesheet" href="assets/theme/layout_1/css/style.css">
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="stylesheet"
+    />
+    <!-- Nucleo Icons -->
+    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/42d5adcbca.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link
+      id="pagestyle"
+      href="./assets/css/argon-dashboard.css?v=2.0.4"
+      rel="stylesheet"
+    />
 
+    <!-- /global stylesheets -->
 
-	<!-- /global stylesheets -->
-	<link rel="stylesheet" href="app.css" />
-	<link rel="stylesheet" href="app.animations.css" />
+    <script type="text/javascript" src="env.js"></script>
+    <script type="text/javascript" src="enums.js"></script>
 
-	<script type="text/javascript" src="env.js"></script>
-	<script type="text/javascript" src="enums.js"></script>
-
-	<!-- Core JS files -->
-	<script type="text/javascript" src="assets/theme/global/js/main/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/theme/global/js/main/bootstrap.bundle.min.js"></script>
-	<script type="text/javascript" src="assets/theme/global/js/plugins/loaders/blockui.min.js"></script>
-	<!--
+    <!-- Core JS files -->
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/main/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/main/bootstrap.bundle.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/plugins/loaders/blockui.min.js"
+    ></script>
+    <!--
 		<script type="text/javascript" src="assets/theme/global/js/plugins/ui/ripple.min.js"></script>
 	-->
-	<link rel="stylesheet" href="node_modules/select2/dist/css/select2.min.css" />
-	<script type="text/javascript" src="node_modules/select2/dist/js/select2.min.js"></script>
-	<script type="text/javascript" src="assets/theme/global/js/plugins/notifications/sweet_alert.min.js"></script>
-	<script type="text/javascript" src="assets/theme/global/js/plugins/forms/styling/switchery.min.js"></script>
-	<script type="text/javascript" src="assets/theme/global/js/plugins/pickers/daterangepicker.js"></script>
-	<script src="assets/theme/global/js/plugins/visualization/echarts/echarts.min.js"></script>
-	<!-- /core JS files -->
-	<script src="assets/theme/global/js/demo_charts/echarts/light/pies/pie_donut.js"></script>
-	<script src="assets/theme/global/js/demo_charts/echarts/light/pies/pie_basic.js"></script>
-	<!-- Theme JS files -->
-	<!-- 
+    <link
+      rel="stylesheet"
+      href="node_modules/select2/dist/css/select2.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="node_modules/select2/dist/js/select2.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/plugins/notifications/sweet_alert.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/plugins/forms/styling/switchery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/plugins/pickers/daterangepicker.js"
+    ></script>
+    <script src="assets/theme/global/js/plugins/visualization/echarts/echarts.min.js"></script>
+    <!-- /core JS files -->
+    <script src="assets/theme/global/js/demo_charts/echarts/light/pies/pie_donut.js"></script>
+    <script src="assets/theme/global/js/demo_charts/echarts/light/pies/pie_basic.js"></script>
+    <!-- Theme JS files -->
+    <!-- 
 
 	<script type="text/javascript" src="assets/theme/global/js/plugins/visualization/d3/d3.min.js"></script>
 	<script type="text/javascript" src="assets/theme/global/js/plugins/visualization/d3/d3_tooltip.js"></script>
@@ -52,7 +81,7 @@
 	<script type="text/javascript" src="assets/theme/global/js/plugins/tables/datatables/extensions/col_reorder.min.js"></script>
 	<script type="text/javascript" src="assets/theme/global/js/plugins/forms/selects/select2.min.js"></script>
 	 -->
-	<!-- 
+    <!-- 
 	<script type="text/javascript" src="assets/theme/global/js/demo_pages/dashboard.js"></script>
 	<script type="text/javascript" src="assets/theme/global/js/demo_charts/pages/dashboard/light/streamgraph.js"></script>
 	<script type="text/javascript" src="assets/theme/global/js/demo_charts/pages/dashboard/light/sparklines.js"></script>
@@ -65,228 +94,123 @@
 	<script type="text/javascript" src="assets/theme/global/js/demo_charts/pages/dashboard/light/pies.js"></script>
 	<script type="text/javascript" src="assets/theme/global/js/demo_charts/pages/dashboard/light/bullets.js"></script>
 	-->
-	<!-- /theme JS files -->
+    <!-- /theme JS files -->
 
-	<script type="text/javascript" src="assets/theme/global/js/plugins/forms/styling/uniform.min.js"></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/plugins/forms/styling/uniform.min.js"
+    ></script>
 
+    <script
+      type="text/javascript"
+      src="node_modules/angular/angular.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="node_modules/angular-animate/angular-animate.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="node_modules/angular-resource/angular-resource.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="node_modules/angular-sanitize/angular-sanitize.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="node_modules/angular-route/angular-route.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="node_modules/select2/dist/js/select2.min.js"
+    ></script>
 
-	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
-	<script type="text/javascript" src="node_modules/angular-animate/angular-animate.min.js"></script>
-	<script type="text/javascript" src="node_modules/angular-resource/angular-resource.min.js"></script>
-	<script type="text/javascript" src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
-	<script type="text/javascript" src="node_modules/angular-route/angular-route.js"></script>
-	<script type="text/javascript" src="node_modules/select2/dist/js/select2.min.js"></script>
+    <script type="text/javascript" src="app.module.js"></script>
+    <script type="text/javascript" src="app.config.js"></script>
+    <script type="text/javascript" src="app.animations.js"></script>
+    <script type="text/javascript" src="services/core.module.js"></script>
+    <script
+      type="text/javascript"
+      src="components/component.module.js"
+    ></script>
 
-	<script type="text/javascript" src="app.module.js"></script>
-	<script type="text/javascript" src="app.config.js"></script>
-	<script type="text/javascript" src="app.animations.js"></script>
+    <script
+      type="text/javascript"
+      src="services/checkmark/checkmark.filter.js"
+    ></script>
 
-	<script type="text/javascript" src="services/core.module.js"></script>
-	<script type="text/javascript" src="services/checkmark/checkmark.filter.js"></script>
+    <!-- services -->
+    <script src="services/user/user.service.js"></script>
 
-	<!-- services -->
-	<script type="text/javascript" src="services/page/page.module.js"></script>
-	<script type="text/javascript" src="services/page/page.service.js"></script>
+    <!-- components -->
+    <script src="components/auth/auth.component.js"></script>
+    <script src="components/side-navigation/navigation.component.js"></script>
+    <script src="components/navigation/navigation.component.js"></script>
+    <script src="components/dashboard/dashboard.component.js"></script>
+  </head>
 
-	<script type="text/javascript" src="services/notification/notification.module.js"></script>
-	<script type="text/javascript" src="services/notification/notification.service.js"></script>
+  <body class="g-sidenav-show">
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/plugins/angular-dropdown-multiselect/angularjs-dropdown-multiselect.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/plugins/ui/moment/moment.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/plugins/tables/datatables/datatables.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/plugins/tables/datatables/extensions/responsive.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/layout_1/js/datatable.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/plugins/angular-dropdown-multiselect/angularjs-dropdown-multiselect.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/plugins/angular-ui-select/select.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/plugins/fancybox/js/fancybox.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/theme/global/js/plugins/select2/js/select2.min.js"
+    ></script>
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="assets/js/plugins/chartjs.min.js"></script>
 
-	<script type="text/javascript" src="services/user/user.module.js"></script>
-	<script type="text/javascript" src="services/user/user.service.js"></script>
-
-	<script type="text/javascript" src="services/kitchen/kitchen.module.js"></script>
-	<script type="text/javascript" src="services/kitchen/kitchen.service.js"></script>
-
-	<script type="text/javascript" src="services/lookupcountry/lookupcountry.module.js"></script>
-	<script type="text/javascript" src="services/lookupcountry/lookupcountry.service.js"></script>
-
-	<script type="text/javascript" src="services/lookupstate/lookupstate.module.js"></script>
-	<script type="text/javascript" src="services/lookupstate/lookupstate.service.js"></script>
-
-	<script type="text/javascript" src="services/lookupcity/lookupcity.module.js"></script>
-	<script type="text/javascript" src="services/lookupcity/lookupcity.service.js"></script>
-
-	<script type="text/javascript" src="services/configuration/configuration.module.js"></script>
-	<script type="text/javascript" src="services/configuration/configuration.service.js"></script>
-
-	<script type="text/javascript" src="services/userindividual/userindividual.module.js"></script>
-	<script type="text/javascript" src="services/userindividual/userindividual.service.js"></script>
-
-	<script type="text/javascript" src="services/userkitchen/userkitchen.module.js"></script>
-	<script type="text/javascript" src="services/userkitchen/userkitchen.service.js"></script>
-
-	<script type="text/javascript" src="services/usersales/usersales.module.js"></script>
-	<script type="text/javascript" src="services/usersales/usersales.service.js"></script>
-
-	<script type="text/javascript" src="services/usercustomer/usercustomer.module.js"></script>
-	<script type="text/javascript" src="services/usercustomer/usercustomer.service.js"></script>
-
-	<script type="text/javascript" src="services/product-category/product-category.module.js"></script>
-	<script type="text/javascript" src="services/product-category/product-category.service.js"></script>
-
-	<script type="text/javascript" src="services/product-type/product-type.module.js"></script>
-	<script type="text/javascript" src="services/product-type/product-type.service.js"></script>
-
-	<script type="text/javascript" src="services/product/product.module.js"></script>
-	<script type="text/javascript" src="services/product/product.service.js"></script>
-
-	<script type="text/javascript" src="services/package/package.module.js"></script>
-	<script type="text/javascript" src="services/package/package.service.js"></script>
-
-	<script type="text/javascript" src="services/coupon/coupon.module.js"></script>
-	<script type="text/javascript" src="services/coupon/coupon.service.js"></script>
-
-	<script type="text/javascript" src="services/quotation/quotation.module.js"></script>
-	<script type="text/javascript" src="services/quotation/quotation.service.js"></script>
-
-	<script type="text/javascript" src="services/quotation-payment/quotation-payment.module.js"></script>
-	<script type="text/javascript" src="services/quotation-payment/quotation-payment.service.js"></script>
-
-	<script type="text/javascript" src="services/order/order.module.js"></script>
-	<script type="text/javascript" src="services/order/order.service.js"></script>
-
-	<script type="text/javascript" src="services/dashboard/dashboard.module.js"></script>
-	<script type="text/javascript" src="services/dashboard/dashboard.service.js"></script>
-	<script type="text/javascript" src="services/revenue/revenue.service.js"></script>
-
-	<script type="text/javascript" src="services/faqs/faqs.module.js"></script>
-	<script type="text/javascript" src="services/faqs/faqs.service.js"></script>
-
-	<script type="text/javascript" src="services/spice-level/spice-level.module.js"></script>
-	<script type="text/javascript" src="services/spice-level/spice-level.service.js"></script>
-
-	<script type="text/javascript" src="services/order-payment/order-payment.module.js"></script>
-	<script type="text/javascript" src="services/order-payment/order-payment.service.js"></script>
-
-	<script type="text/javascript" src="services/order-refund-payment/order-refund-payment.module.js"></script>
-	<script type="text/javascript" src="services/order-refund-payment/order-refund-payment.service.js"></script>
-
-
-	<script type="text/javascript" src="services/setting/setting.module.js"></script>
-	<script type="text/javascript" src="services/setting/setting.service.js"></script>
-	<!-- components -->
-	<script type="text/javascript" src="components/dashboard/dashboard.module.js"></script>
-	<script type="text/javascript" src="components/dashboard/dashboard.component.js"></script>
-
-	<script type="text/javascript" src="components/navigation/navigation.module.js"></script>
-	<script type="text/javascript" src="components/navigation/navigation.component.js"></script>
-
-	<script type="text/javascript" src="components/auth/auth.module.js"></script>
-	<script type="text/javascript" src="components/auth/auth.component.js"></script>
-
-	<script type="text/javascript" src="components/page-list/page-list.module.js"></script>
-	<script type="text/javascript" src="components/page-list/page-list.component.js"></script>
-
-	<script type="text/javascript" src="components/lookupcountry/lookupcountry.module.js"></script>
-	<script type="text/javascript" src="components/lookupcountry/lookupcountry.component.js"></script>
-
-	<script type="text/javascript" src="components/lookupstate/lookupstate.module.js"></script>
-	<script type="text/javascript" src="components/lookupstate/lookupstate.component.js"></script>
-
-	<script type="text/javascript" src="components/lookupcity/lookupcity.module.js"></script>
-	<script type="text/javascript" src="components/lookupcity/lookupcity.component.js"></script>
-
-	<script type="text/javascript" src="components/configuration/configuration.module.js"></script>
-	<script type="text/javascript" src="components/configuration/configuration.component.js"></script>
-
-	<script type="text/javascript" src="components/usercustomer/usercustomer.module.js"></script>
-	<script type="text/javascript" src="components/usercustomer/usercustomer.component.js"></script>
-
-	<script type="text/javascript" src="components/usersales/usersales.module.js"></script>
-	<script type="text/javascript" src="components/usersales/usersales.component.js"></script>
-
-	<script type="text/javascript" src="components/userkitchen/userkitchen.module.js"></script>
-	<script type="text/javascript" src="components/userkitchen/userkitchen.component.js"></script>
-
-	<script type="text/javascript" src="components/product-category/product-category.module.js"></script>
-	<script type="text/javascript" src="components/product-category/product-category.component.js"></script>
-	<script type="text/javascript"
-		src="components/product-package-category/product-package-category.component.js"></script>
-	<script type="text/javascript" src="components/product-package-category/product-package-category.module.js"></script>
-	<script type="text/javascript"
-		src="components/product-quotation-category/product-quotation-category.component.js"></script>
-	<script type="text/javascript" src="components/product/product.module.js"></script>
-	<script type="text/javascript" src="components/product/product.component.js"></script>
-
-	<script type="text/javascript" src="components/package/package.module.js"></script>
-	<script type="text/javascript" src="components/package/package.component.js"></script>
-
-	<script type="text/javascript" src="components/coupon/coupon.module.js"></script>
-	<script type="text/javascript" src="components/coupon/coupon.component.js"></script>
-
-	<script type="text/javascript" src="components/quotation/quotation.module.js"></script>
-	<script type="text/javascript" src="components/quotation-detail/quotation-detail.component.js"></script>
-	<script type="text/javascript" src="components/quotation-discount/quotation-discount-modal.component.js"></script>
-	<script type="text/javascript" src="components/quotation-items-modal/quotation-items-modal.component.js"></script>
-	<script type="text/javascript" src="components/quotation/quotation.component.js"></script>
-
-	<script type="text/javascript" src="components/order/order.module.js"></script>
-	<script type="text/javascript" src="components/refund-list/refund.component.js"></script>
-	<script type="text/javascript" src="components/order-detail/order-detail.component.js"></script>
-	<script type="text/javascript" src="components/order-payment/order-payment.component.js"></script>
-	<script type="text/javascript" src="components/order-payment-refund/order-payment-refund.component.js"></script>
-	<script type="text/javascript"
-		src="components/order-items-modal-type-product/order-items-modal-type-product.component.js"></script>
-	<script type="text/javascript" src="components/order/order.component.js"></script>
-
-
-
-	<script type="text/javascript" src="components/faqs/faqs-list.module.js"></script>
-	<script type="text/javascript" src="components/faqs/faqs-list.component.js"></script>
-
-
-	<script type="text/javascript" src="components/setting/setting.module.js"></script>
-	<script type="text/javascript" src="components/setting/setting.component.js"></script>
-
-</head>
-
-<body>
-	<script type="text/javascript"
-		src="assets/theme/global/js/plugins/angular-dropdown-multiselect/angularjs-dropdown-multiselect.min.js"></script>
-	<script type="text/javascript" src="assets/theme/global/js/plugins/ui/moment/moment.min.js"></script>
-	<script type="text/javascript" src="assets/theme/global/js/plugins/pickers/daterangepicker.js"></script>
-	<script type="text/javascript" src="assets/theme/global/js/plugins/tables/datatables/datatables.min.js"></script>
-	<script type="text/javascript"
-		src="assets/theme/global/js/plugins/tables/datatables/extensions/responsive.min.js"></script>
-	<script type="text/javascript" src="assets/theme/global/js/plugins/notifications/pnotify.min.js"></script>
-	<script type="text/javascript" src="assets/theme/layout_1/js/datatable.js"></script>
-	<script type="text/javascript"
-		src="assets/theme/global/js/plugins/angular-dropdown-multiselect/angularjs-dropdown-multiselect.min.js"></script>
-	<script type="text/javascript" src="assets/theme/global/js/plugins/angular-ui-select/select.min.js"></script>
-	<script type="text/javascript" src="assets/theme/global/js/plugins/fancybox/js/fancybox.min.js"></script>
-	<script type="text/javascript" src="assets/theme/global/js/plugins/select2/js/select2.min.js"></script>
-	<script type="text/javascript" src="assets/theme/layout_1/js/custom.js"></script>
-	<navigation></navigation>
-	<!-- Page content -->
-	<div class="toast align-items-center text-white sticky-top hide" role="alert" aria-live="assertive" aria-atomic="true" id="myToastEl" data-bs-autohide="true">
-		<div class="d-flex">
-		  <div class="toast-body">
-		  Item Added to cart.
-		 </div>
-		  <button type="button" class="btn-close me-2 m-auto text-white" data-bs-dismiss="toast" aria-label="Close"></button>
-		</div>
-	</div>
-	<div class="page-content">
-
-		<!-- Main content -->
-		<div class="content-wrapper">
-			<div ng-view class="view-frame" id="cnt">
-			</div>
-			<div id="sharedComponents">
-				<order-detail></order-detail>
-				<order-payment></order-payment>
-				<order-payment-refund></order-payment-refund>
-				<order-items-modal-type-product></order-items-modal-type-product>
-				<quotation-items-modal></quotation-items-modal>
-				<quotation-discount-modal></quotation-discount-modal>
-				<quotation-detail></quotation-detail>
-			</div>
-		</div>
-		<!-- /main content -->
-
-	</div>
-	<!-- /page content -->
-
-</body>
-
+    <div class="page-content">
+      <div class="content-wrapper">
+        <div ng-view class="view-frame" id="cnt"></div>
+        <!-- <div id="sharedComponents">
+							<order-detail></order-detail>
+							<order-payment></order-payment>
+							<order-payment-refund></order-payment-refund>
+							<order-items-modal-type-product></order-items-modal-type-product>
+							<quotation-items-modal></quotation-items-modal>
+							<quotation-discount-modal></quotation-discount-modal>
+							<quotation-detail></quotation-detail>
+						</div> -->
+      </div>
+      <!-- Main content -->
+      <!-- /main content -->
+    </div>
+    <!-- <navigation></navigation> -->
+    <!-- Page content -->
+    <!-- /page content -->
+  </body>
 </html>

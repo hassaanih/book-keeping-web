@@ -1,160 +1,114 @@
-<!-- Main navbar -->
-<div class="navbar navbar-expand-md navbar-static bg-dark-800 navbar-custom justify-content-between align-items-center"
-	ng-show="$ctrl.isLogin()" ng-init="init()">
-	<div class="navbar-brand">
-		<a href="index.html" class="d-inline-block">
-			<img src="assets/theme/global/images/header-logo.svg" alt="">
-		</a>
-	</div>
-
-	<!-- <div class="collapse navbar-collapse" id="navbar-mobile">
-	</div> -->
-	<div class="navbar navbar-expand-md navbar-custom" ng-show="$ctrl.isLogin()">
-		<div class="text-center d-md-none w-100">
-			<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse"
-				data-target="#navbar-navigation">
-				<i class="icon-unfold mr-2"></i>
-				Navigation
-			</button>
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
+	<div class="container-fluid py-1 px-3">
+	  <nav aria-label="breadcrumb">
+		<ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+		  <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
+		  <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
+		</ol>
+		<h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
+	  </nav>
+	  <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+		<div class="ms-md-auto pe-md-3 d-flex align-items-center">
+		  <div class="input-group">
+			<span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+			<input type="text" class="form-control" placeholder="Type here...">
+		  </div>
 		</div>
-
-		<div class="navbar-collapse collapse" id="navbar-navigation">
-			<ul class="nav navbar-nav">
-				<li class="nav-item">
-					<a href="#!/dashboard" routerLinkActive="active" class="navbar-nav-link d-flex align-items-center active-nav">
-						<!-- <i class="icon-home4 mr-2"></i> -->
-						<span class="mr-2">
-							<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M7.5 15V10.5H10.5V15H14.25V9H16.5L9 2.25L1.5 9H3.75V15H7.5Z" fill="white" />
-							</svg>
-						</span>
-						Dashboard
-					</a>
-				</li>
-				<li class="nav-item dropdown" ng-show="$ctrl.isSuperAdmin">
-					<span class="navbar-nav-link dropdown-toggle d-flex align-items-center" data-toggle="dropdown">
-						<!-- <i class="icon-grid mr-2"></i> -->
-						<span class="mr-2">
-							<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M9 9C10.6575 9 12 7.6575 12 6C12 4.3425 10.6575 3 9 3C7.3425 3 6 4.3425 6 6C6 7.6575 7.3425 9 9 9ZM9 10.5C6.9975 10.5 3 11.505 3 13.5V15H15V13.5C15 11.505 11.0025 10.5 9 10.5Z"
-									fill="white" />
-							</svg>
-						</span>
-						Users
-					</span>
-					<div class="dropdown-menu">
-						<a href="#!/user/customer" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
-							Customers</a>
-						<a href="#!/user/kitchen" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
-							Kitchen</a>
-						<a href="#!/user/sales" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i> Order
-							Taker</a>
+		<ul class="navbar-nav  justify-content-end">
+		  <li class="nav-item d-flex align-items-center">
+			<a href="#!/auth/logout" class="nav-link text-white font-weight-bold px-0">
+			  <i class="fa fa-user me-sm-1"></i>
+			  <span class="d-sm-inline d-none">Sign Out</span>
+			</a>
+		  </li>
+		  <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+			<a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+			  <div class="sidenav-toggler-inner">
+				<i class="sidenav-toggler-line bg-white"></i>
+				<i class="sidenav-toggler-line bg-white"></i>
+				<i class="sidenav-toggler-line bg-white"></i>
+			  </div>
+			</a>
+		  </li>
+		  <li class="nav-item px-3 d-flex align-items-center">
+			<a href="javascript:;" class="nav-link text-white p-0">
+			  <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+			</a>
+		  </li>
+		  <li class="nav-item dropdown pe-2 d-flex align-items-center">
+			<a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+			  <i class="fa fa-bell cursor-pointer"></i>
+			</a>
+			<ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+			  <li class="mb-2">
+				<a class="dropdown-item border-radius-md" href="javascript:;">
+				  <div class="d-flex py-1">
+					<div class="my-auto">
+					  <img src="./assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
 					</div>
-				</li>
-				<li class="nav-item dropdown" ng-show="$ctrl.isSuperAdmin">
-					<span class="navbar-nav-link dropdown-toggle d-flex align-items-center" data-toggle="dropdown">
-						<!-- <i class="icon-grid mr-2"></i> -->
-						<span class="mr-2">
-							<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M15 1.5H3C2.25 1.5 1.5 2.175 1.5 3V5.2575C1.5 5.7975 1.8225 6.2625 2.25 6.525V15C2.25 15.825 3.075 16.5 3.75 16.5H14.25C14.925 16.5 15.75 15.825 15.75 15V6.525C16.1775 6.2625 16.5 5.7975 16.5 5.2575V3C16.5 2.175 15.75 1.5 15 1.5ZM11.25 10.5H6.75V9H11.25V10.5ZM15 5.25H3V3L15 2.985V5.25Z"
-									fill="white" />
-							</svg>
-						</span>
-						Manage Content
-					</span>
-					<div class="dropdown-menu">
-						<a href="#!/product" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
-							Products</a>
-						<a href="#!/package/list" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
-							Packages</a>
-						<div class="dropdown-divider"></div>
-						<a href="#!/productcategory/list" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
-							Product - Categories</a>
-						<a href="#!/productpackagecategory/list" routerLinkActive="active" class="dropdown-item"><i
-								class="icon-grid"></i> Package - Categories</a>
-
-						<a href="#!/productquotationcategory/list" routerLinkActive="active" class="dropdown-item"><i
-								class="icon-grid"></i> Quotation - Categories</a>
-						<div class="dropdown-divider"></div>
-						<!-- <a href="#!/coupon" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
-							Coupon</a> -->
-						<div class="dropdown-divider"></div>
-						<a href="#!/faqs" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
-							FAQ's</a>
+					<div class="d-flex flex-column justify-content-center">
+					  <h6 class="text-sm font-weight-normal mb-1">
+						<span class="font-weight-bold">New message</span> from Laur
+					  </h6>
+					  <p class="text-xs text-secondary mb-0">
+						<i class="fa fa-clock me-1"></i>
+						13 minutes ago
+					  </p>
 					</div>
-				</li>
-				<!-- <li class="nav-item dropdown">
-					<span class="navbar-nav-link dropdown-toggle d-flex align-items-center" data-toggle="dropdown">
-						<i class="icon-grid mr-2"></i>
-						<span class="mr-2">
-							<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M13.5 9.74997H12.99L11.49 11.25H12.9225L14.25 12.75H3.75L5.085 11.25H6.6225L5.1225 9.74997H4.5L2.25 12V15C2.25 15.825 2.9175 16.5 3.7425 16.5H14.25C15.075 16.5 15.75 15.8325 15.75 15V12L13.5 9.74997ZM12.75 5.96247L9.0375 9.67497L6.3825 7.01997L10.095 3.30747L12.75 5.96247ZM9.57 1.71747L4.7925 6.49497C4.5 6.78747 4.5 7.25997 4.7925 7.55247L8.505 11.265C8.7975 11.5575 9.27 11.5575 9.5625 11.265L14.3325 6.49497C14.625 6.20247 14.625 5.72997 14.3325 5.43747L10.62 1.72497C10.335 1.42497 9.8625 1.42497 9.57 1.71747Z"
-									fill="white" />
-							</svg>
-						</span>
-						Sales
-					</span>
-					<div class="dropdown-menu">
-						<a href="#!/order" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
-							Orders</a>
-						<a href="#!/quotation" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i>
-							Quotations</a>
-						<div class="dropdown-divider"></div>
-						<a href="#!/fashionstyles" routerLinkActive="active" class="dropdown-item"><i class="icon-grid"></i> Commisions</a>
-
+				  </div>
+				</a>
+			  </li>
+			  <li class="mb-2">
+				<a class="dropdown-item border-radius-md" href="javascript:;">
+				  <div class="d-flex py-1">
+					<div class="my-auto">
+					  <img src="./assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
 					</div>
-				</li> -->
-				<li class="nav-item" ng-show="$ctrl.isSuperAdmin">
-					<a href="#!/settinglist" routerLinkActive="active" class="navbar-nav-link d-flex align-items-center">
-						<!-- <i class="icon-home4 mr-2"></i> -->
-						<span class="mr-2">
-							<i class="icon-gear"></i>
-						</span>
-						Settings
-					</a>
-				</li>
+					<div class="d-flex flex-column justify-content-center">
+					  <h6 class="text-sm font-weight-normal mb-1">
+						<span class="font-weight-bold">New album</span> by Travis Scott
+					  </h6>
+					  <p class="text-xs text-secondary mb-0">
+						<i class="fa fa-clock me-1"></i>
+						1 day
+					  </p>
+					</div>
+				  </div>
+				</a>
+			  </li>
+			  <li>
+				<a class="dropdown-item border-radius-md" href="javascript:;">
+				  <div class="d-flex py-1">
+					<div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
+					  <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<title>credit-card</title>
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						  <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+							<g transform="translate(1716.000000, 291.000000)">
+							  <g transform="translate(453.000000, 454.000000)">
+								<path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
+								<path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
+							  </g>
+							</g>
+						  </g>
+						</g>
+					  </svg>
+					</div>
+					<div class="d-flex flex-column justify-content-center">
+					  <h6 class="text-sm font-weight-normal mb-1">
+						Payment successfully completed
+					  </h6>
+					  <p class="text-xs text-secondary mb-0">
+						<i class="fa fa-clock me-1"></i>
+						2 days
+					  </p>
+					</div>
+				  </div>
+				</a>
+			  </li>
 			</ul>
-		</div>
+		  </li>
+		</ul>
+	  </div>
 	</div>
-	<ul class="navbar-nav">
-		<li class="nav-item dropdown dropdown-user">
-			<span class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
-				<img src="./assets/theme/global/images/placeholders/placeholder.jpg" class="rounded-circle mr-2" height="34"
-					alt="">
-				<span ng-bind="$ctrl.user.full_name"></span>
-			</span>
-
-			<div class="dropdown-menu dropdown-menu-right">
-				<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
-				<a href="#!/auth/logout" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
-			</div>
-		</li>
-	</ul>
-</div>
-<!-- /main navbar -->
-
-<!-- /secondary navbar -->
-<div class="d-block float-right p-1">
-	<div class="alert alert-success border-0 alert-dismissible" ng-repeat="notify in $ctrl.notifications">
-		<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
-		<span class="font-weight-semibold" ng-bind="notify.action"> New</span>
-	</div>
-</div>
-
-
-<!-- <ul class="nav navbar-nav ml-md-auto align-self-start">
-				<li class="nav-item dropdown">
-					<span class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-cog3"></i>
-						<span class="d-md-none ml-2">Settings</span>
-					</span>
-	
-					<div class="dropdown-menu dropdown-menu-right">
-						<a href="#!/configurationlist" class="dropdown-item"><i class="icon-gear"></i> All settings</a>
-					</div>
-				</li>
-			</ul> -->
+  </nav>
