@@ -41,7 +41,6 @@ angular.module("component").component("auth", {
         UserService.login(ctrl.user).then(
           function successCallback(response) {
             console.log(response);
-            if (response.data.user.access_token) {
               localStorage.setItem("auth_token", response.data.user.access_token);
               localStorage.setItem("full_name", response.data.user.name);
               // localStorage.setItem("user_type_id", response.data.user.user_type_id);
@@ -49,8 +48,7 @@ angular.module("component").component("auth", {
               $rootScope.$broadcast('UserService:login');
               console.log('$rootScope.$broadcast(UserService:login)');
 
-              $location.path("#!/dashboard");
-            }
+              window.location.href = config.APP_URL + '#!/dashboard';
           },
           function errorCallback(response) {
             if (response.status == 400) {

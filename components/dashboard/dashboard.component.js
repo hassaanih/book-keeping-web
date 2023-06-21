@@ -28,6 +28,9 @@ angular.module("component").component("dashboard", {
 
       ctrl.$onInit = function () {
         ctrl.user.full_name = localStorage.getItem("full_name");
+        if(ctrl.user.full_name == undefined){
+          window.location.href = config.APP_URL + '#!/auth/signin';
+        }
         // ctrl.user.user_type_id = localStorage.getItem("user_type_id");
         // ctrl.user.user_type_name = localStorage.getItem("user_type_name");
 
