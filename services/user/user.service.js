@@ -10,6 +10,10 @@ function UserService($http, API_URL) {
       });
     },
 
+    authenticate: function(){
+      return localStorage.getItem('auth_token') ? true : false;
+    },
+
     logout: function () {
       return $http({
         method: 'GET',

@@ -150,7 +150,7 @@
     <script src="components/dashboard/dashboard.component.js"></script>
   </head>
 
-  <body class="g-sidenav-show">
+  <body class="g-sidenav-show" style="background-color: #a4a3a3;">
     <script
       type="text/javascript"
       src="assets/theme/global/js/plugins/angular-dropdown-multiselect/angularjs-dropdown-multiselect.min.js"
@@ -192,23 +192,23 @@
     <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="assets/js/plugins/chartjs.min.js"></script>
-
-    <div class="page-content">
-      <div class="content-wrapper">
-        <div ng-view class="view-frame" id="cnt"></div>
-        <!-- <div id="sharedComponents">
-							<order-detail></order-detail>
-							<order-payment></order-payment>
-							<order-payment-refund></order-payment-refund>
-							<order-items-modal-type-product></order-items-modal-type-product>
-							<quotation-items-modal></quotation-items-modal>
-							<quotation-discount-modal></quotation-discount-modal>
-							<quotation-detail></quotation-detail>
-						</div> -->
-      </div>
-      <!-- Main content -->
-      <!-- /main content -->
-    </div>
+	<div class="row">
+		<div class="col-lg-3">
+			<side-navigation></side-navigation>
+		</div>
+		<div class="col-lg-9">
+			<main class="main-content position-relative border-radius-lg">
+				<navigation></navigation>
+				<div class="page-content">
+				  <div class="content-wrapper">
+					<div ng-view class="view-frame" id="cnt"></div>
+				  </div>
+				  <!-- Main content -->
+				  <!-- /main content -->
+				</div>
+			</main>
+		</div>
+	</div>
     <!-- <navigation></navigation> -->
     <!-- Page content -->
     <!-- /page content -->
