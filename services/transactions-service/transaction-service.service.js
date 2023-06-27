@@ -7,7 +7,7 @@ function TransactionService($http, API_URL) {
     },
 
     findUsingOTP: function (otp) {
-      return $http.get(API_URL + "/transaction/find/otp/" + id);
+      return $http.get(API_URL + "/transaction/find/otp/" + otp);
     },
 
     add: function (data) {
@@ -37,6 +37,10 @@ function TransactionService($http, API_URL) {
     approve: function (id) {
       return $http.get(API_URL + "/transaction/approve/" + id);
     },
+
+    list: function(){
+      return $http.get(API_URL + "/transaction/list");
+    }
   };
 }
 

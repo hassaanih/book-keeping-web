@@ -22,6 +22,7 @@ angular.module("myApp").config([
       .when("/auth/:action", { template: "<auth></auth>" })
       .when("/pages", { template: "<page-list></page-list>" })
       .when("/dashboard", { template: "<dashboard></dashboard>" })
+      .when("/transaction", { template: "<transaction></transaction>" })
       // .when("/lookupcountrylist", { template: "<lookup-country-list></lookup-country-list>" })
       // .when("/lookupstatelist", { template: "<lookup-state-list></lookup-state-list>" })
       // .when("/lookupcitylist", { template: "<lookup-city-list></lookup-city-list>" })
@@ -48,7 +49,7 @@ angular.module("myApp").config([
         request: function (config) {
           // add authorize header
           if (localStorage.getItem("auth_token")) {
-            config.headers.Authorization =
+            config.headers.Authorization = 'Bearer ' +
               localStorage.getItem("auth_token");
           }
           return config;

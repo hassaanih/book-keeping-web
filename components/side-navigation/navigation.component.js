@@ -7,15 +7,18 @@ angular.
     controller: [
       '$scope',
       // 'NotificationService',
+      'UserService',
       'Constant',
       function NavigationController(
         $scope,
-        // NotificationService, 
+        // NotificationService,
+        UserService, 
         Constant
         ) {
         var ctrl = this;
         ctrl.user = {"full_name" : "Admin"};
         ctrl.notifications = [];
+        ctrl.isLogin = UserService.authenticate();
         ctrl.Constant = Constant;
         ctrl.isSuperAdmin = localStorage.getItem('user_type_id') == ctrl.Constant.UserType.SUPER_ADMIN ? true : false;
         ctrl.$onInit = function () {
