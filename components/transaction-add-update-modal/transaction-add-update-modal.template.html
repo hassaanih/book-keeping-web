@@ -22,7 +22,7 @@
         </a>
       </div>
       <div class="modal-body">
-        <div class="row">
+        <div class="row mb-2">
               <div class="col-lg-3">
                 <label class="form-label">Total Balance: </label>
               </div>
@@ -30,10 +30,45 @@
                 <input class="form-control" type="text" ng-model="$ctrl.transaction.balance">
               </div>
         </div>
+        <div class="row mb-2">
+              <div class="col-lg-3">
+                <label class="form-label">Currency: </label>
+              </div>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" ng-model="$ctrl.transaction.currency">
+              </div>
+        </div>
+        <div class="row mb-2">
+              <div class="col-lg-3">
+                <label class="form-label">Converted Amount: </label>
+              </div>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" ng-model="$ctrl.transaction.converted_amount">
+              </div>
+        </div>
+        <div class="row mb-2">
+              <div class="col-lg-3">
+                <label class="form-label">OTP: </label>
+              </div>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" ng-model="$ctrl.transaction.otp_for_transaction" disabled readonly>
+              </div>
+        </div>
+        <div class="row mb-2">
+              <div class="col-lg-3">
+                <label class="form-label">Reason to Reject: </label>
+              </div>
+              <div class="col-lg-9">
+                <textarea class="form-control" ng-model="$ctrl.transaction.reason_for_reject"></textarea>
+              </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="$ctrl.closeModal()">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.createTransaction()" ng-show="$ctrl.modalType.TOBECREATED == $ctrl.activeModalType">Add</button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.updateTransaction()" ng-show="$ctrl.modalType.TOBEUPDATED == $ctrl.activeModalType">Update</button>
+        <button type="button" class="btn btn-danger" ng-click="$ctrl.reject()" ng-show="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType">Reject</button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.complete()" ng-show="$ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">Complete</button>
       </div>
     </div>
   </div>

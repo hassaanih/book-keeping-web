@@ -38,6 +38,10 @@ function TransactionService($http, API_URL) {
       return $http.get(API_URL + "/transaction/approve/" + id);
     },
 
+    complete: function (id) {
+      return $http.get(API_URL + "/transaction/complete/" + id);
+    },
+
     list: function(){
       return $http.get(API_URL + "/transaction/list");
     }

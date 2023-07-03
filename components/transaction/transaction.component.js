@@ -26,6 +26,7 @@ angular.module("component").component("transaction", {
       ctrl.user = { full_name: "", user_type_id: "", user_type_name: "" };
       ctrl.Constant = Constant;
       ctrl.transactionList = [];
+      ctrl.modalType = Constant.TransactionModalType
 
       ctrl.$onInit = function () {
         ctrl.user.full_name = localStorage.getItem("full_name");
@@ -44,12 +45,27 @@ angular.module("component").component("transaction", {
         )
       }
 
+      ctrl.approve = function(id){
+        TransactionService.approve(id).then(
+          function success(response){
+            if(response.status == 200){
+              ctrl.list();
+            }
+          },
+          function error(response){
+
+          }
+        )
+      }
+
+      
+
       ctrl.showAddModal = function (){
         $rootScope.$broadcast("Transaction:ShowAddModal");
       }
 
-      ctrl.showUpdateModal = function(id){
-        $rootScope.$broadcast("Transaction:ShowUpdateModal", {id: id});
+      ctrl.showUpdateModal = function(id, modalType){
+        $rootScope.$broadcast("Transaction:ShowUpdateModal", {id: id, modalType: modalType});
       }
     },
   ],

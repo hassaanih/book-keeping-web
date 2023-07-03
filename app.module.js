@@ -18,52 +18,13 @@ appz.constant('STORAGE_URL', config.STORAGE_URL);
 appz.constant('NO_PHOTO', config.NO_PHOTO);
 
 appz.constant('Constant', {
-  ProductType: {
-    PRODUCT: 1,
-    PACKAGE: 2,
-    QUOTATION: 3
+  TransactionModalType: {
+    TOBEUPDATED: 1,
+    TOBECREATED: 2,
+    TOBECOMPLETED: 3,
+    TOBEREJECTED: 4
   },
-  OrderType: {
-    DIRECT: 1,
-    CUSTOM: 2
-  },
-  UserType: {
-    SUPER_ADMIN: 1,
-    SALES: 2,
-    KITCHEN: 3,
-    CUSTOMER: 4
-  },
-  DeliveryMethod: {
-    PICK_UP: 1,
-    DELIVERY: 2,
-  },
-  Order_Status: {
-    ORDER_ALL: -1,
-    ORDER_PENDING: 1,
-    ORDER_INPROGRESS: 2,
-    ORDER_DELIVERED: 3,
-    ORDER_CANCELLED: 4,
-    ORDER_REFUNDED: 5
-  },
-  Quotation_Status: {
-    QUOTATION_ALL: -1,
-    QUOTATION_PENDING: 1,
-    QUOTATION_AT_SALES: 2,
-    QUOTATION_AT_KITCHEN: 3,
-    PAYMENT_PENDING: 4,
-    COMPLETED: 5,
-    CANCELLED: 6,
-  },
-  PaymentMethod: [
-    { name: "Alfa Pay", value: "1" },
-    { name: "Bank Transfer", value: "2" },
-    { name: "Cash", value: "3" },
-  ],
-  BankNames: [
-    { name: "Alfalah Bank", value: "1" },
-    { name: "Askari Bank", value: "2" },
-    { name: "UBL", value: "3" },
-  ]
+  
 });
 
 appz.filter('propsFilter', function () {

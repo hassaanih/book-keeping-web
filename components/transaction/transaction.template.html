@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table p-0">
+          <div class="table table-responsive p-0">
             <table class="table align-items-center mb-0">
               <thead>
                 <tr >
@@ -102,7 +102,7 @@
                   <td class="align-middle">
                     <div class="d-flex justify-content-center">
                       <div data-toggle="tooltip" title="Approve" class="p-1">
-                        <a href="javascript:;"
+                        <a href="javascript:;" ng-click="$ctrl.approve(transaction.id)"
                           ><span
                             ><svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@
                         ></a>
                       </div>
                       <div data-toggle="tooltip" title="Reject" class="p-1">
-                        <a href="javascript:;"
+                        <a href="javascript:;" ng-click="$ctrl.reject(transaction.id)"
                           ><span
                             ><svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -140,7 +140,7 @@
                         ></a>
                       </div>
                       <div data-toggle="tooltip" title="Info" class="p-1">
-                        <a href="javascript:;"
+                        <a href="javascript:;" ng-click="$ctrl.showUpdateModal(transaction.id, $ctrl.modalType.TOBEUPDATED)"
                           ><span
                             ><svg
                               xmlns="http://www.w3.org/2000/svg"
