@@ -26,7 +26,9 @@ angular.module("component").component("transaction", {
       ctrl.user = { full_name: "", user_type_id: "", user_type_name: "" };
       ctrl.Constant = Constant;
       ctrl.transactionList = [];
-      ctrl.modalType = Constant.TransactionModalType
+      ctrl.modalType = Constant.TransactionModalType;
+      ctrl.userTypes = Constant.UserType;
+      ctrl.activeUserType = localStorage.getItem("user_type_id");
 
       ctrl.$onInit = function () {
         ctrl.user.full_name = localStorage.getItem("full_name");
@@ -66,6 +68,30 @@ angular.module("component").component("transaction", {
 
       ctrl.showUpdateModal = function(id, modalType){
         $rootScope.$broadcast("Transaction:ShowUpdateModal", {id: id, modalType: modalType});
+      }
+
+      ctrl.showRejectModal = function(id, modalType){
+        $rootScope.$broadcast("Transaction:ShowRejectModal", {id: id, modalType: modalType});
+      }
+
+      ctrl.searchUsingOtp = function (){
+        let inputValue;
+        Swal.fire({
+          title: 'Enter Transaction OTP',
+          input: 'number',
+          inputLabel: 'OTP',
+          inputValue: inputValue,
+          showCancelButton: true,
+          inputValidator: (value) => {
+            if (!value) {
+              return 'You need to write something!'
+            }else{
+              inputValue = value;
+              console.log(inputValue)
+              $rootScope.$broadcast("Transaction:ShowCompleteModal", {otp: inputValue, modalType: ctrl.modalType.TOBECOMPLETED});
+            }
+          }
+        })
       }
     },
   ],

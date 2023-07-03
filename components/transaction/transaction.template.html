@@ -4,36 +4,43 @@
       <div class="card mb-4">
         <div class="card-header pb-0 d-flex justify-content-between">
           <h5>Transactions</h5>
-          <div>
-            <h6>
-              <a ng-click="$ctrl.showAddModal()">
-                <span class="d-block text-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-plus-square"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
-                    />
-                    <path
-                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                    />
-                  </svg>
-                </span>
-              </a>
-              Add
-            </h6>
+          <div class="d-flex align-items-center justify-content-between px-2" ng-if="$ctrl.activeUserType == $ctrl.userTypes.AGENT">
+            <button type="button" class="btn btn-success" style="margin-right: 6px;" ng-click="$ctrl.showAddModal()">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                </svg>
+              </span>
+              <span style="margin-left: 2px;">
+                Add
+              </span>
+            </button>
+            <button type="button" class="btn btn-primary" ng-click="$ctrl.searchUsingOtp()">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                  ></path>
+                </svg>
+              </span>
+              <span style="margin-left: 3px;">
+                Search Using Otp
+              </span>
+            </button>
           </div>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
           <div class="table table-responsive p-0">
             <table class="table align-items-center mb-0">
               <thead>
-                <tr >
+                <tr>
                   <th
                     class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                   >
@@ -72,37 +79,54 @@
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm" ng-bind="transaction.initiator.name"></h6>
-                        <p class="text-xs text-secondary mb-0" ng-bind="transaction.initiator.email">
-                        </p>
+                        <h6
+                          class="mb-0 text-sm"
+                          ng-bind="transaction.initiator.name"
+                        ></h6>
+                        <p
+                          class="text-xs text-secondary mb-0"
+                          ng-bind="transaction.initiator.email"
+                        ></p>
                       </div>
                     </div>
                   </td>
                   <td>
-                    <p class="text-xs font-weight-bold mb-0" ng-bind="transaction.balance"></p>
+                    <p
+                      class="text-xs font-weight-bold mb-0"
+                      ng-bind="transaction.balance"
+                    ></p>
                   </td>
                   <td class="align-middle text-center text-sm">
-                    <p class="text-xs font-weight-bold mb-0" ng-bind="transaction.currency"></p>
+                    <p
+                      class="text-xs font-weight-bold mb-0"
+                      ng-bind="transaction.currency"
+                    ></p>
                   </td>
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold"
-                      >{{transaction.manager_id != null ? transaction.manager.name : 'N/A'}}</span
+                      >{{transaction.manager_id != null ?
+                      transaction.manager.name : 'N/A'}}</span
                     >
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold"
-                      ng-bind="transaction.transaction_status"></span
-                    >
+                    <span
+                      class="text-secondary text-xs font-weight-bold"
+                      ng-bind="transaction.transaction_status"
+                    ></span>
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold"
-                      ng-bind="transaction.converted_amount"></span
-                    >
+                    <span
+                      class="text-secondary text-xs font-weight-bold"
+                      ng-bind="transaction.converted_amount"
+                    ></span>
                   </td>
                   <td class="align-middle">
                     <div class="d-flex justify-content-center">
                       <div data-toggle="tooltip" title="Approve" class="p-1">
-                        <a href="javascript:;" ng-click="$ctrl.approve(transaction.id)"
+                        <a
+                          href="javascript:;"
+                          ng-click="$ctrl.approve(transaction.id)"
+                          ng-if="$ctrl.activeUserType == $ctrl.userTypes.MANAGER"
                           ><span
                             ><svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +145,10 @@
                         ></a>
                       </div>
                       <div data-toggle="tooltip" title="Reject" class="p-1">
-                        <a href="javascript:;" ng-click="$ctrl.reject(transaction.id)"
+                        <a
+                          href="javascript:;"
+                          ng-click="$ctrl.showRejectModal(transaction.id, $ctrl.modalType.TOBEREJECTED)"
+                          ng-if="$ctrl.activeUserType == $ctrl.userTypes.MANAGER"
                           ><span
                             ><svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -140,7 +167,9 @@
                         ></a>
                       </div>
                       <div data-toggle="tooltip" title="Info" class="p-1">
-                        <a href="javascript:;" ng-click="$ctrl.showUpdateModal(transaction.id, $ctrl.modalType.TOBEUPDATED)"
+                        <a
+                          href="javascript:;"
+                          ng-click="$ctrl.showUpdateModal(transaction.id, $ctrl.modalType.TOBEUPDATED)"
                           ><span
                             ><svg
                               xmlns="http://www.w3.org/2000/svg"

@@ -43,7 +43,7 @@ angular.module("component").component("auth", {
             console.log(response);
               localStorage.setItem("auth_token", response.data.user.access_token);
               localStorage.setItem("full_name", response.data.user.name);
-              // localStorage.setItem("user_type_id", response.data.user.user_type_id);
+              localStorage.setItem("user_type_id", response.data.user.user_type_id);
               // localStorage.setItem("user_type_name", response.data.user.user_type_name);
               $rootScope.$broadcast('UserService:login');
               console.log('$rootScope.$broadcast(UserService:login)');

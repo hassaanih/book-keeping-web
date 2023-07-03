@@ -24,7 +24,10 @@ appz.constant('Constant', {
     TOBECOMPLETED: 3,
     TOBEREJECTED: 4
   },
-  
+  UserType: {
+    MANAGER: 'manager',
+    AGENT: 'agent'
+  }
 });
 
 appz.filter('propsFilter', function () {

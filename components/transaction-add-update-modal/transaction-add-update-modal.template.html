@@ -65,10 +65,10 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="$ctrl.closeModal()">Close</button>
-        <button type="button" class="btn btn-primary" ng-click="$ctrl.createTransaction()" ng-show="$ctrl.modalType.TOBECREATED == $ctrl.activeModalType">Add</button>
-        <button type="button" class="btn btn-primary" ng-click="$ctrl.updateTransaction()" ng-show="$ctrl.modalType.TOBEUPDATED == $ctrl.activeModalType">Update</button>
-        <button type="button" class="btn btn-danger" ng-click="$ctrl.reject()" ng-show="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType">Reject</button>
-        <button type="button" class="btn btn-primary" ng-click="$ctrl.complete()" ng-show="$ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">Complete</button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.createTransaction()" ng-show="$ctrl.modalType.TOBECREATED == $ctrl.activeModalType" ng-click="$ctrl.createTransaction()">Add</button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.updateTransaction()" ng-show="$ctrl.modalType.TOBEUPDATED == $ctrl.activeModalType" ng-click="$ctrl.updateTransaction()">Update</button>
+        <button type="button" class="btn btn-danger" ng-click="$ctrl.reject()" ng-show="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType" ng-click="$ctrl.reject()">Reject</button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.complete()" ng-show="$ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType" ng-click="$ctrl.complete()">Complete</button>
       </div>
     </div>
   </div>

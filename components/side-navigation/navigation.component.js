@@ -20,8 +20,11 @@ angular.
         ctrl.notifications = [];
         ctrl.isLogin = UserService.authenticate();
         ctrl.Constant = Constant;
-        ctrl.isSuperAdmin = localStorage.getItem('user_type_id') == ctrl.Constant.UserType.SUPER_ADMIN ? true : false;
+        ctrl.userTypes = Constant.UserType;
+        ctrl.activeUserType = localStorage.getItem("user_type_id");
+        // ctrl.isSuperAdmin = localStorage.getItem('user_type_id') == ctrl.Constant.UserType.SUPER_ADMIN ? true : false;
         ctrl.$onInit = function () {
+          console.log(ctrl.isLogin);
           // setInterval(function(){
           //   NotificationService.getNotifications().then(
           //     function success(response){
@@ -42,13 +45,10 @@ angular.
                 
         }
         
-        // ctrl.$onChanges = function () {
-        //   ctrl.user.full_name = localStorage.getItem('full_name');
-        // }
+        ctrl.$onChanges = function () {
+          ctrl.isLogin = UserService.authenticate();
+        }
         
-        // ctrl.isLogin = function (settings) {
-        //   return localStorage.getItem('auth_token')!=undefined;
-        // }
 
         // $scope.$on('UserService:login', function(){
         //   ctrl.isSuperAdmin = localStorage.getItem('user_type_id') == ctrl.Constant.UserType.SUPER_ADMIN ? true : false;
