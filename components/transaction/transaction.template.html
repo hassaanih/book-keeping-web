@@ -52,9 +52,19 @@
                     Total Balance
                   </th>
                   <th
+                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                  >
+                    OTP
+                  </th>
+                  <th
                     class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                   >
-                    Currency
+                    Recieving Currency
+                  </th>
+                  <th
+                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                  >
+                    Target Currency
                   </th>
                   <th
                     class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
@@ -96,10 +106,22 @@
                       ng-bind="transaction.balance"
                     ></p>
                   </td>
+                  <td>
+                    <p
+                      class="text-xs font-weight-bold mb-0"
+                      ng-bind="transaction.otp_for_transaction"
+                    ></p>
+                  </td>
                   <td class="align-middle text-center text-sm">
                     <p
                       class="text-xs font-weight-bold mb-0"
-                      ng-bind="transaction.currency"
+                      ng-bind="transaction.recieving_currency"
+                    ></p>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <p
+                      class="text-xs font-weight-bold mb-0"
+                      ng-bind="transaction.target_currency"
                     ></p>
                   </td>
                   <td class="align-middle text-center">

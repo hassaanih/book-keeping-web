@@ -1,6 +1,5 @@
 "use strict";
 
-
 angular.module("component").component("transactionAddUpdate", {
   templateUrl:
     "components/transaction-add-update-modal/transaction-add-update-modal.template.html",
@@ -27,6 +26,7 @@ angular.module("component").component("transactionAddUpdate", {
       ctrl.transaction = {};
       ctrl.modalType = Constant.TransactionModalType;
       ctrl.activeModalType = 0;
+      ctrl.disableCommision = true;
 
       ctrl.$onInit = function () {
         ctrl.transaction = {};
@@ -62,7 +62,6 @@ angular.module("component").component("transactionAddUpdate", {
         console.log(data);
         ctrl.findUsingOTP(data.otp);
         ctrl.activeModalType = data.modalType;
-        $("#transaction-modal").modal("show");
       });
 
       ctrl.find = function (id) {
@@ -76,20 +75,35 @@ angular.module("component").component("transactionAddUpdate", {
         );
       };
 
+      $scope.$watchGroup(['$ctrl.transaction.recieving_currency', '$ctrl.transaction.target_currency'], function(newValues, oldValues) {
+        let dropdown1Value = newValues[0];
+        let dropdown2Value = newValues[1];
+    
+        if (dropdown1Value === dropdown2Value) {
+          // Perform action when values are the same
+          console.log('Performing action...');
+          ctrl.disableCommision = true;
+          // Add your action code here
+        }else{
+          ctrl.disableCommision = false;
+        }
+      });
+
       // findUsingOTP
       ctrl.findUsingOTP = function (otp) {
         TransactionService.findUsingOTP(otp).then(
           function success(response) {
             ctrl.transaction = response.data.transaction;
+            $("#transaction-modal").modal("show");
           },
           function error(response) {
-            $("#transaction-modal").modal("hide");
             Swal.fire({
               icon: "error",
               title: "No transaction found.",
               showConfirmButton: false,
               timer: 1500,
             });
+            // $("#transaction-modal").modal("hide");
           }
         );
       };
@@ -119,9 +133,8 @@ angular.module("component").component("transactionAddUpdate", {
       ctrl.createTransaction = function () {
         TransactionService.add(ctrl.transaction).then(
           function success(response) {
-            if (response.status == 200) {
-              $rootScope.$broadcast("Update::List");
-            }
+            $rootScope.$broadcast("Update::List");
+            $("#transaction-modal").modal("hide");
           },
           function error(response) {
             ctrl.error = response.data.error;

@@ -35,6 +35,10 @@ angular.module("component").component("transaction", {
         ctrl.list();
       };
 
+      $scope.$on("Update::List", function(){
+        ctrl.list();
+      })
+
       ctrl.list = function(){
         TransactionService.list().then(
           function success(response){
