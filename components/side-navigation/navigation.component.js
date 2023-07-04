@@ -6,11 +6,13 @@ angular.
     templateUrl: 'components/side-navigation/navigation.template.html',
     controller: [
       '$scope',
+      '$rootScope',
       // 'NotificationService',
       'UserService',
       'Constant',
       function NavigationController(
         $scope,
+        $rootScope,
         // NotificationService,
         UserService, 
         Constant
@@ -23,6 +25,9 @@ angular.
         ctrl.userTypes = Constant.UserType;
         ctrl.activeUserType = localStorage.getItem("user_type_id");
         // ctrl.isSuperAdmin = localStorage.getItem('user_type_id') == ctrl.Constant.UserType.SUPER_ADMIN ? true : false;
+        $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
+          ctrl.isLogin = UserService.authenticate();
+        });
         ctrl.$onInit = function () {
           console.log(ctrl.isLogin);
           // setInterval(function(){

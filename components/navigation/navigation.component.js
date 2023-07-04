@@ -6,10 +6,12 @@ angular.
     templateUrl: 'components/navigation/navigation.template.html',
     controller: [
       '$scope',
+      '$rootScope',
       // 'NotificationService',
       'UserService',
       'Constant',
       function NavigationController($scope,
+        $rootScope,
         // NotificationService, 
         UserService,
         Constant) {
@@ -18,6 +20,9 @@ angular.
         ctrl.notifications = [];
         ctrl.isLogin = UserService.authenticate();
         ctrl.Constant = Constant;
+        $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
+          ctrl.isLogin = UserService.authenticate();
+        });
         // ctrl.isSuperAdmin = localStorage.getItem('user_type_id') == ctrl.Constant.UserType.SUPER_ADMIN ? true : false;
         ctrl.$onInit = function () {
           // setInterval(function(){
