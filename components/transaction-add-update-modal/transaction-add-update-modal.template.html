@@ -27,7 +27,7 @@
                 <label class="form-label">Total Balance: </label>
               </div>
               <div class="col-lg-9">
-                <input class="form-control" type="number" ng-model="$ctrl.transaction.balance">
+                <input class="form-control" type="number" ng-model="$ctrl.transaction.balance" ng-disabled="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
               </div>
         </div>
         <div class="row mb-2">
@@ -35,7 +35,7 @@
                 <label class="form-label">Target Currency: </label>
               </div>
               <div class="col-lg-9">
-                <select class="form-control" ng-model="$ctrl.transaction.target_currency">
+                <select class="form-control" ng-model="$ctrl.transaction.target_currency" ng-disabled="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
                   <option value="">Select a currency</option>
                   <option value="USD">United States Dollar (USD)</option>
                   <option value="EUR">Euro (EUR)</option>
@@ -65,7 +65,7 @@
             <label class="form-label">Recieving Currency: </label>
           </div>
           <div class="col-lg-9">
-            <select class="form-control" ng-model="$ctrl.transaction.recieving_currency">
+            <select class="form-control" ng-model="$ctrl.transaction.recieving_currency" ng-disabled="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
               <option value="">Select a currency</option>
               <option value="USD">United States Dollar (USD)</option>
               <option value="EUR">Euro (EUR)</option>
@@ -95,7 +95,7 @@
                 <label class="form-label">Converted Amount: </label>
               </div>
               <div class="col-lg-9">
-                <input class="form-control" type="number" ng-model="$ctrl.transaction.converted_amount">
+                <input class="form-control" type="number" ng-model="$ctrl.transaction.converted_amount" ng-disabled="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
               </div>
         </div>
         <div class="row mb-2">
@@ -103,7 +103,7 @@
             <label class="form-label">Commision: </label>
           </div>
           <div class="col-lg-9">
-            <input class="form-control" type="number" ng-model="$ctrl.transaction.commision" ng-disabled="$ctrl.disableCommision">
+            <input class="form-control" type="number" ng-model="$ctrl.transaction.commision" ng-disabled="$ctrl.disableCommision || $ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
           </div>
     </div>
         <div class="row mb-2">

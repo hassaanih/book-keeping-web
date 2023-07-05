@@ -112,6 +112,7 @@ angular.module("component").component("transactionAddUpdate", {
         TransactionService.reject(ctrl.transaction).then(
           function success(response) {
             if (response.status == 200) {
+              ctrl.closeModal();
               $rootScope.$broadcast("Update::List");
             }
           },
@@ -123,6 +124,7 @@ angular.module("component").component("transactionAddUpdate", {
         TransactionService.complete(ctrl.transaction.id).then(
           function success(response) {
             if (response.status == 200) {
+              ctrl.closeModal();
               $rootScope.$broadcast("Update::List");
             }
           },
@@ -133,6 +135,12 @@ angular.module("component").component("transactionAddUpdate", {
       ctrl.createTransaction = function () {
         TransactionService.add(ctrl.transaction).then(
           function success(response) {
+            console.log(response)
+            Swal.fire({
+              icon: "success",
+              title: "Your Transaction Otp is " + response.data.transaction.otp_for_transaction,
+              showConfirmButton: false,
+            });
             $rootScope.$broadcast("Update::List");
             $("#transaction-modal").modal("hide");
           },
@@ -147,6 +155,7 @@ angular.module("component").component("transactionAddUpdate", {
           function success(response) {
             if (response.status == 200) {
               $rootScope.$broadcast("Update::List");
+              ctrl.closeModal();
             }
           },
           function error(response) {}
