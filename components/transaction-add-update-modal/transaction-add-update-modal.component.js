@@ -27,6 +27,7 @@ angular.module("component").component("transactionAddUpdate", {
       ctrl.modalType = Constant.TransactionModalType;
       ctrl.activeModalType = 0;
       ctrl.disableCommision = true;
+      ctrl.TransactionStatus = Constant.TransactionStatus;
 
       ctrl.$onInit = function () {
         ctrl.transaction = {};
@@ -94,7 +95,18 @@ angular.module("component").component("transactionAddUpdate", {
         TransactionService.findUsingOTP(otp).then(
           function success(response) {
             ctrl.transaction = response.data.transaction;
-            $("#transaction-modal").modal("show");
+            console.log(ctrl.transaction);
+            if(ctrl.transaction.transaction_status == ctrl.TransactionStatus.APPROVED){
+              $("#transaction-modal").modal("show");
+            }else{
+              Swal.fire({
+                icon: "warning",
+                title: "Cannot view transaction.",
+                text: "The required transaction is in " + ctrl.transaction.transaction_status + " status. " + (ctrl.transaction.manager_id ? 'Please contact '+ ctrl.transaction.manager.name + ' to further process your transaction.' : ' No action has been taken regarding your transaction.'),
+                showConfirmButton: false,
+                timer: 5000,
+              });
+            }
           },
           function error(response) {
             Swal.fire({

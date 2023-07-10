@@ -27,6 +27,12 @@ appz.constant('Constant', {
   UserType: {
     MANAGER: 'manager',
     AGENT: 'agent'
+  },
+  TransactionStatus: {
+    PENDING_FOR_APPROVAL: 'Pending for Approval',
+    APPROVED: 'Approved',
+    COMPLETED: 'Completed',
+    REJECTED: 'Rejected'
   }
 });
 

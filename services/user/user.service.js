@@ -27,6 +27,33 @@ function UserService($http, API_URL) {
 
     inactivateAccount: function (id) {
       return $http.get(API_URL + "/user/inactivateaccount/" + id);
+    },
+
+    list: function (){
+      return $http({
+        method: "GET",
+        url: API_URL + '/user/list'
+      })
+    },
+    create: function (data){
+      return $http({
+        method: "POST",
+        url: API_URL + '/user/create',
+        data: data
+      })
+    },
+    update: function (data){
+      return $http({
+        method: "POST",
+        url: API_URL + '/user/update',
+        data: data
+      })
+    },
+    find: function (id){
+      return $http({
+        method: "GET",
+        url: API_URL + '/user/find/' + id
+      })
     }
   };
 }

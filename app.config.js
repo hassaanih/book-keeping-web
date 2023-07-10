@@ -23,6 +23,7 @@ angular.module("myApp").config([
       .when("/pages", { template: "<page-list></page-list>" })
       .when("/dashboard", { template: "<dashboard></dashboard>" })
       .when("/transaction", { template: "<transaction></transaction>" })
+      .when("/user", { template: "<user></user>" })
       // .when("/lookupcountrylist", { template: "<lookup-country-list></lookup-country-list>" })
       // .when("/lookupstatelist", { template: "<lookup-state-list></lookup-state-list>" })
       // .when("/lookupcitylist", { template: "<lookup-city-list></lookup-city-list>" })
