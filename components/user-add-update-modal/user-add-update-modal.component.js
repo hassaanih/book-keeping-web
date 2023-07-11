@@ -56,7 +56,7 @@ angular.module("component").component("userAddUpdate", {
         );
       };
 
-      
+
 
       ctrl.createUser = function () {
         UserService.create(ctrl.user).then(
@@ -79,7 +79,7 @@ angular.module("component").component("userAddUpdate", {
               ctrl.closeModal();
             }
           },
-          function error(response) {}
+          function error(response) { }
         );
       };
 
