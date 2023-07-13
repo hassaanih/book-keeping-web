@@ -7,25 +7,22 @@ angular.module("component").component("dashboard", {
     "$location",
     "$routeParams",
     // "RevenueService",
-    // "DashboardService",
+    "DashboardService",
     "Constant",
     function DashboardController(
       $scope,
       $location,
       $routeParams,
       // RevenueService,
-      // DashboardService,
+      DashboardService,
       Constant
     ) {
       var ctrl = this;
       ctrl.dashboard = {};
       ctrl.user = { full_name: "", user_type_id: "", user_type_name: "" };
       ctrl.Constant = Constant;
-      ctrl.revnueData = [];
-      ctrl.amountRefundedAndCancelled;
-      ctrl.amountRecievedAndRemaining;
-      ctrl.revenue;
-
+      ctrl.transactionData = {};
+      ctrl.creditData = [];
       ctrl.$onInit = function () {
         ctrl.user.full_name = localStorage.getItem("full_name");
         if(ctrl.user.full_name == undefined){
@@ -34,7 +31,7 @@ angular.module("component").component("dashboard", {
         // ctrl.user.user_type_id = localStorage.getItem("user_type_id");
         // ctrl.user.user_type_name = localStorage.getItem("user_type_name");
 
-        // ctrl.get();
+        ctrl.get();
         // ctrl.getRevenue();
       };
 
@@ -47,24 +44,18 @@ angular.module("component").component("dashboard", {
       //   ctrl.revenue = settings.barGraph;
       // };
 
-      // ctrl.get = function () {
-      //   DashboardService.get().then(
-      //     function success(response) {
-      //       ctrl.dashboard = response.data.dashboard;
-      //       console.log(ctrl.dashboard);
-      //       ctrl.dashboard.today = new Date(ctrl.dashboard.today);
-      //       ctrl.dashboard.tomorrow = new Date(ctrl.dashboard.tomorrow);
-      //       ctrl.dashboard.this_week_start = new Date(ctrl.dashboard.this_week_start);
-      //       ctrl.dashboard.this_week_end = new Date(ctrl.dashboard.this_week_end);
-      //       ctrl.dashboard.this_month = new Date(ctrl.dashboard.this_month);
-      //       ctrl.dashboard.this_year = new Date(ctrl.dashboard.this_year);
-      //       console.log(ctrl.dashboard);
-      //       ctrl.constructRefundAndCancelAmountGraph();
-      //       ctrl.constructRecievedAndRemainingAmountGraph();
-      //     },
-      //     function error(response) {}
-      //   );
-      // };
+      ctrl.get = function () {
+        DashboardService.get().then(
+          function success(response) {
+            console.log(response.data);
+            ctrl.creditData = response.data.user_currency_credit;
+            ctrl.transactionData = response.data.transactions_data;
+            // ctrl.dashboard = response.data;
+           
+          },
+          function error(response) {}
+        );
+      };
 
       // ctrl.getRevenue = function () {
       //   RevenueService.findAll().then(

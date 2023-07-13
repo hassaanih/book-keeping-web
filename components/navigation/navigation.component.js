@@ -46,6 +46,10 @@ angular.
           
                 
         }
+
+        ctrl.$postLink = function(){
+          ctrl.isLogin = UserService.authenticate();
+        }
         
         ctrl.$onChanges = function () {
           ctrl.isLogin = UserService.authenticate();
@@ -57,6 +61,7 @@ angular.
 
         $scope.$on('UserService:login', function(){
           // ctrl.isSuperAdmin = localStorage.getItem('user_type_id') == ctrl.Constant.UserType.SUPER_ADMIN ? true : false;
+          ctrl.isLogin = UserService.authenticate();
           ctrl.user.full_name = localStorage.getItem('full_name');
         })
       }

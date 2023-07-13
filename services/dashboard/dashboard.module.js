@@ -1,4 +1,4 @@
 'use strict';
 
 // Define the `core` module
-angular.module('core.dashboard', ['ngResource']);
+angular.module('core.dashboard', []);
