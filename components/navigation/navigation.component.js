@@ -7,12 +7,12 @@ angular.
     controller: [
       '$scope',
       '$rootScope',
-      // 'NotificationService',
+      'NotificationService',
       'UserService',
       'Constant',
       function NavigationController($scope,
         $rootScope,
-        // NotificationService, 
+        NotificationService, 
         UserService,
         Constant) {
         var ctrl = this;
@@ -27,28 +27,26 @@ angular.
         });
         // ctrl.isSuperAdmin = localStorage.getItem('user_type_id') == ctrl.Constant.UserType.SUPER_ADMIN ? true : false;
         ctrl.$onInit = function () {
-          // setInterval(function(){
-          //   NotificationService.getNotifications().then(
-          //     function success(response){
-          //       ctrl.notifications = response.data.notification;
-          //       console.log(ctrl.notifications)
-          //       //BUG:: Audio will not work unless any action is done on browser.
-          //       var audioEle = document.createElement("AUDIO")
-          //       document.body.appendChild(audioEle);
-          //       audioEle.src = 'assets/theme/global/notification-audio/notification.wav';
-          //       audioEle.load();
-          //       audioEle.play();
-          //     },
-          //     function error(response){
-          //     }
-          //     )
-          //   }, 5000);
-          
+          setInterval(function(){
+            ctrl.getNotification();
+          }, 1000);
                 
         }
 
         ctrl.$postLink = function(){
           ctrl.isLogin = UserService.authenticate();
+        }
+
+        ctrl.getNotification = function(){
+          NotificationService.getUserNotification().then(
+            function success(response){
+              console.log(response.data);
+              ctrl.notifications = response.data.notification;
+            },
+            function error(response){
+
+            }
+          )
         }
         
         ctrl.$onChanges = function () {

@@ -10,6 +10,7 @@ angular.module("component").component("transactionAddUpdate", {
     "$rootScope",
     // "RevenueService",
     // "DashboardService",
+    "LookupDataService",
     "TransactionService",
     "Constant",
     function TransactionAddUpdateController(
@@ -19,6 +20,7 @@ angular.module("component").component("transactionAddUpdate", {
       $rootScope,
       // RevenueService,
       // DashboardService,
+      LookupDataService,
       TransactionService,
       Constant
     ) {
@@ -28,10 +30,12 @@ angular.module("component").component("transactionAddUpdate", {
       ctrl.activeModalType = 0;
       ctrl.disableCommision = true;
       ctrl.TransactionStatus = Constant.TransactionStatus;
+      ctrl.lookupCurrency = [];
 
       ctrl.$onInit = function () {
         ctrl.transaction = {};
         ctrl.activeModalType = 0;
+        ctrl.getLookupCurrency();
       };
 
       ctrl.$postLink = function () {
@@ -76,7 +80,7 @@ angular.module("component").component("transactionAddUpdate", {
         );
       };
 
-      $scope.$watchGroup(['$ctrl.transaction.recieving_currency', '$ctrl.transaction.target_currency'], function(newValues, oldValues) {
+      $scope.$watchGroup(['$ctrl.transaction.recieving_currency_id', '$ctrl.transaction.target_currency_id'], function(newValues, oldValues) {
         let dropdown1Value = newValues[0];
         let dropdown2Value = newValues[1];
     
@@ -143,6 +147,18 @@ angular.module("component").component("transactionAddUpdate", {
           function error(response) {}
         );
       };
+
+      ctrl.getLookupCurrency = function(){
+        LookupDataService.get().then(
+          function success(response){
+            ctrl.lookupCurrency = response.data.lookupCurrency;
+            console.log(ctrl.transactionList);
+          },
+          function error(response){
+            console.log(response)
+          }
+        )
+      }
 
       ctrl.createTransaction = function () {
         TransactionService.add(ctrl.transaction).then(

@@ -10,6 +10,7 @@ angular.module("component").component("userAddCreditModal", {
     "$rootScope",
     // "RevenueService",
     // "DashboardService",
+    "LookupDataService",
     "UserService",
     "Constant",
     function AgentAddUpdateController(
@@ -19,12 +20,14 @@ angular.module("component").component("userAddCreditModal", {
       $rootScope,
       // RevenueService,
       // DashboardService,
+      LookupDataService,
       UserService,
       Constant
     ) {
       var ctrl = this;
       ctrl.user = {};
       ctrl.isEditMode = false;
+      ctrl.lookupCurrency = [];
 
       ctrl.$onInit = function () {
         ctrl.user = {};
@@ -50,6 +53,18 @@ angular.module("component").component("userAddCreditModal", {
           }
         );
       };
+
+      ctrl.getLookupCurrency = function(){
+        LookupDataService.get().then(
+          function success(response){
+            ctrl.lookupCurrency = response.data.lookupCurrency;
+            console.log(ctrl.transactionList);
+          },
+          function error(response){
+            console.log(response)
+          }
+        )
+      }
 
       ctrl.updateUser = function () {
         UserService.update(ctrl.user).then(

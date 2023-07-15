@@ -9,6 +9,7 @@ angular.module("component").component("transaction", {
     "$rootScope",
     // "RevenueService",
     // "DashboardService",
+    "LookupDataService",
     "TransactionService",
     "Constant",
     function TransactionController(
@@ -18,6 +19,7 @@ angular.module("component").component("transaction", {
       $rootScope,
       // RevenueService,
       // DashboardService,
+      LookupDataService,
       TransactionService,
       Constant
     ) {
@@ -29,6 +31,7 @@ angular.module("component").component("transaction", {
       ctrl.modalType = Constant.TransactionModalType;
       ctrl.userTypes = Constant.UserType;
       ctrl.activeUserType = localStorage.getItem("user_type_id");
+      ctrl.lookupCurrencies = []; 
 
       ctrl.$onInit = function () {
         ctrl.user.full_name = localStorage.getItem("full_name");
@@ -50,6 +53,8 @@ angular.module("component").component("transaction", {
           }
         )
       }
+
+      
 
       ctrl.approve = function(id){
         TransactionService.approve(id).then(
