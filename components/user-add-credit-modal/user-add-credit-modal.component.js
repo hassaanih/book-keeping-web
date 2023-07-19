@@ -31,6 +31,7 @@ angular.module("component").component("userAddCreditModal", {
 
       ctrl.$onInit = function () {
         ctrl.user = {};
+        ctrl.getLookupCurrency();
       };
 
       ctrl.$postLink = function () {

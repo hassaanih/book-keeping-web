@@ -18,18 +18,19 @@ angular.
         var ctrl = this;
         ctrl.user = {"full_name" : "Admin"};
         ctrl.notifications = [];
-        ctrl.isLogin = UserService.authenticate();
+        ctrl.isLogin;
         ctrl.Constant = Constant;
         ctrl.modalType = Constant.TransactionModalType;
         ctrl.otp = '';
-        $rootScope.$on('$routeChangeSuccess', function(event, current, previous) {
+        $scope.$on('Route::change', function() {
+          console.log("Route::change");
           ctrl.isLogin = UserService.authenticate();
         });
         // ctrl.isSuperAdmin = localStorage.getItem('user_type_id') == ctrl.Constant.UserType.SUPER_ADMIN ? true : false;
         ctrl.$onInit = function () {
-          setInterval(function(){
+          // setInterval(function(){
             ctrl.getNotification();
-          }, 1000);
+          // }, 1000);
                 
         }
 
@@ -48,12 +49,25 @@ angular.
             }
           )
         }
+
+        ctrl.markAsRead = function(){
+          NotificationService.markAsRead().then(
+            function success(response){
+              console.log(response.data);
+              ctrl.getNotification();
+            },
+            function error(response){
+
+            }
+          )
+        }
         
         ctrl.$onChanges = function () {
           ctrl.isLogin = UserService.authenticate();
         }
         
         ctrl.findTransactionUsingOtp = function (){
+          debugger
           $rootScope.$broadcast("Transaction:ShowCompleteModal", {otp: ctrl.otp, modalType: ctrl.modalType.TOBECOMPLETED});
         }
 

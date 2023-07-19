@@ -5,10 +5,15 @@ function NotificationService($rootScope, $http, API_URL) {
     getUserNotification: function () {
       return $http({
         method: 'GET',
-        url: API_URL + '/notification/get/'
+        url: API_URL + '/notification/get'
       });
     },
-
+    markAsRead : function () {
+      return $http({
+        method: 'GET',
+        url: API_URL + '/notification/read'
+      })
+    }
     
   };
 }

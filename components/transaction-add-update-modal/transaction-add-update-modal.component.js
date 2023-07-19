@@ -50,6 +50,7 @@ angular.module("component").component("transactionAddUpdate", {
 
       $scope.$on("Transaction:ShowUpdateModal", function (args, data) {
         console.log(data);
+        ctrl.getLookupCurrency();
         ctrl.find(data.id);
         ctrl.activeModalType = data.modalType;
         $("#transaction-modal").modal("show");
@@ -57,6 +58,7 @@ angular.module("component").component("transactionAddUpdate", {
 
       $scope.$on("Transaction:ShowRejectModal", function (args, data) {
         console.log(data);
+        ctrl.getLookupCurrency();
         ctrl.find(data.id);
         ctrl.activeModalType = data.modalType;
         $("#transaction-modal").modal("show");
@@ -64,6 +66,7 @@ angular.module("component").component("transactionAddUpdate", {
 
       // Transaction:ShowCompleteModal
       $scope.$on("Transaction:ShowCompleteModal", function (args, data) {
+        ctrl.getLookupCurrency();
         console.log(data);
         ctrl.findUsingOTP(data.otp);
         ctrl.activeModalType = data.modalType;
@@ -110,6 +113,8 @@ angular.module("component").component("transactionAddUpdate", {
                 showConfirmButton: false,
                 timer: 5000,
               });
+
+              $("#transaction-modal").modal("show");
             }
           },
           function error(response) {
@@ -152,7 +157,7 @@ angular.module("component").component("transactionAddUpdate", {
         LookupDataService.get().then(
           function success(response){
             ctrl.lookupCurrency = response.data.lookupCurrency;
-            console.log(ctrl.transactionList);
+            console.log(ctrl.lookupCurrency);
           },
           function error(response){
             console.log(response)
