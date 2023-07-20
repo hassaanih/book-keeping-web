@@ -54,6 +54,13 @@ function UserService($http, API_URL) {
         method: "GET",
         url: API_URL + '/user/find/' + id
       })
+    },
+    addCredit: function (data){
+      return $http({
+        method: "POST",
+        url: API_URL + '/user/add/credit',
+        data: data
+      }) 
     }
   };
 }

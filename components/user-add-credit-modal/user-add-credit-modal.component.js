@@ -68,7 +68,7 @@ angular.module("component").component("userAddCreditModal", {
       }
 
       ctrl.updateUser = function () {
-        UserService.update(ctrl.user).then(
+        UserService.addCredit(ctrl.user).then(
           function success(response) {
             if (response.status == 200) {
               $rootScope.$broadcast("Update::List::User");
