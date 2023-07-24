@@ -36,8 +36,8 @@
               </div>
               <div class="col-lg-9">
                 <select class="form-control" ng-model="$ctrl.transaction.target_currency_id" ng-disabled="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
-                  <option value="">Select a currency</option>
-                  <option value="{{currency.id}}" ng-repeat="currency in $ctrl.lookupCurrency" ng-bind="currency.name"></option>
+                  <option ng-value="">Select a currency</option>
+                  <option ng-value="currency.id" ng-repeat="currency in $ctrl.lookupCurrency" ng-bind="currency.name"></option>
                   
                 </select>
               </div>
@@ -48,8 +48,8 @@
           </div>
           <div class="col-lg-9">
             <select class="form-control" ng-model="$ctrl.transaction.recieving_currency_id" ng-disabled="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
-              <option value="">Select a currency</option>
-              <option value="{{currency.id}}" ng-repeat="currency in $ctrl.lookupCurrency" ng-bind="currency.name"></option>
+              <option ng-value="">Select a currency</option>
+              <option ng-value="currency.id" ng-repeat="currency in $ctrl.lookupCurrency" ng-bind="currency.name"></option>
               
             </select>
           </div>
