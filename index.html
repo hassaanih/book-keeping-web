@@ -1,70 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp" manifest="demo.appcache">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Book Keeping</title>
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
-      rel="stylesheet"
-    />
-    <!-- Nucleo Icons -->
-    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- Font Awesome Icons -->
-    <script
-      src="https://kit.fontawesome.com/42d5adcbca.js"
-      crossorigin="anonymous"
-    ></script>
-    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link
-      id="pagestyle"
-      href="./assets/css/argon-dashboard.css?v=2.0.4"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Book Keeping</title>
 
-    <!-- /global stylesheets -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/style-new.css">
+  <!-- /global stylesheets -->
 
-    <script type="text/javascript" src="env.js"></script>
-    <script type="text/javascript" src="enums.js"></script>
+  <script type="text/javascript" src="env.js"></script>
+  <script type="text/javascript" src="enums.js"></script>
 
-    <!-- Core JS files -->
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/main/jquery.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/main/bootstrap.bundle.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/plugins/loaders/blockui.min.js"
-    ></script>
-    <!--
+  <!-- Core JS files -->
+  <script type="text/javascript" src="assets/theme/global/js/main/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/theme/global/js/main/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="assets/theme/global/js/plugins/loaders/blockui.min.js"></script>
+  <!--
 		<script type="text/javascript" src="assets/theme/global/js/plugins/ui/ripple.min.js"></script>
 	-->
-    <link
-      rel="stylesheet"
-      href="node_modules/select2/dist/css/select2.min.css"
-    />
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/plugins/forms/styling/switchery.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/plugins/pickers/daterangepicker.js"
-    ></script>
-    <script src="assets/theme/global/js/plugins/visualization/echarts/echarts.min.js"></script>
-    <!-- /core JS files -->
-    <script src="assets/theme/global/js/demo_charts/echarts/light/pies/pie_donut.js"></script>
-    <script src="assets/theme/global/js/demo_charts/echarts/light/pies/pie_basic.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Theme JS files -->
-    <!-- 
+  <link rel="stylesheet" href="node_modules/select2/dist/css/select2.min.css" />
+  <script type="text/javascript" src="assets/theme/global/js/plugins/forms/styling/switchery.min.js"></script>
+  <script type="text/javascript" src="assets/theme/global/js/plugins/pickers/daterangepicker.js"></script>
+  <script src="assets/theme/global/js/plugins/visualization/echarts/echarts.min.js"></script>
+  <!-- /core JS files -->
+  <script src="assets/theme/global/js/demo_charts/echarts/light/pies/pie_donut.js"></script>
+  <script src="assets/theme/global/js/demo_charts/echarts/light/pies/pie_basic.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Theme JS files -->
+  <!-- 
 
 	<script type="text/javascript" src="assets/theme/global/js/plugins/visualization/d3/d3.min.js"></script>
 	<script type="text/javascript" src="assets/theme/global/js/plugins/visualization/d3/d3_tooltip.js"></script>
@@ -75,7 +48,7 @@
 	<script type="text/javascript" src="assets/theme/global/js/plugins/tables/datatables/extensions/col_reorder.min.js"></script>
 	<script type="text/javascript" src="assets/theme/global/js/plugins/forms/selects/select2.min.js"></script>
 	 -->
-    <!-- 
+  <!-- 
 	<script type="text/javascript" src="assets/theme/global/js/demo_pages/dashboard.js"></script>
 	<script type="text/javascript" src="assets/theme/global/js/demo_charts/pages/dashboard/light/streamgraph.js"></script>
 	<script type="text/javascript" src="assets/theme/global/js/demo_charts/pages/dashboard/light/sparklines.js"></script>
@@ -88,136 +61,86 @@
 	<script type="text/javascript" src="assets/theme/global/js/demo_charts/pages/dashboard/light/pies.js"></script>
 	<script type="text/javascript" src="assets/theme/global/js/demo_charts/pages/dashboard/light/bullets.js"></script>
 	-->
-    <!-- /theme JS files -->
+  <!-- /theme JS files -->
 
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/plugins/forms/styling/uniform.min.js"
-    ></script>
+  <script type="text/javascript" src="assets/theme/global/js/plugins/forms/styling/uniform.min.js"></script>
 
-    <script
-      type="text/javascript"
-      src="node_modules/angular/angular.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="node_modules/angular-animate/angular-animate.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="node_modules/angular-resource/angular-resource.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="node_modules/angular-sanitize/angular-sanitize.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="node_modules/angular-route/angular-route.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="node_modules/select2/dist/js/select2.min.js"
-    ></script>
+  <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="node_modules/angular-animate/angular-animate.min.js"></script>
+  <script type="text/javascript" src="node_modules/angular-resource/angular-resource.min.js"></script>
+  <script type="text/javascript" src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="node_modules/angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="node_modules/select2/dist/js/select2.min.js"></script>
 
-    <script type="text/javascript" src="app.module.js"></script>
-    <script type="text/javascript" src="app.config.js"></script>
-    <script type="text/javascript" src="app.animations.js"></script>
-    <script type="text/javascript" src="services/core.module.js"></script>
-    <script
-      type="text/javascript"
-      src="components/component.module.js"
-    ></script>
+  <script type="text/javascript" src="app.module.js"></script>
+  <script type="text/javascript" src="app.config.js"></script>
+  <script type="text/javascript" src="app.animations.js"></script>
+  <script type="text/javascript" src="services/core.module.js"></script>
+  <script type="text/javascript" src="components/component.module.js"></script>
 
-    <script
-      type="text/javascript"
-      src="services/checkmark/checkmark.filter.js"
-    ></script>
+  <script type="text/javascript" src="services/checkmark/checkmark.filter.js"></script>
 
-    <!-- services -->
-    <script src="services/user/user.service.js"></script>
-    <script src="services/transactions-service/transaction-service.service.js"></script>
-    <script src="services/dashboard/dashboard.service.js"></script>
-    <script src="services/lookup-data-service/lookup-data-service.service.js"></script>
-    <script src="services/notification/notification.service.js"></script>
+  <!-- services -->
+  <script src="services/user/user.service.js"></script>
+  <script src="services/transactions-service/transaction-service.service.js"></script>
+  <script src="services/dashboard/dashboard.service.js"></script>
+  <script src="services/lookup-data-service/lookup-data-service.service.js"></script>
+  <script src="services/notification/notification.service.js"></script>
 
-    <!-- components -->
-    <script src="components/auth/auth.component.js"></script>
-    <script src="components/side-navigation/navigation.component.js"></script>
-    <script src="components/navigation/navigation.component.js"></script>
-    <script src="components/dashboard/dashboard.component.js"></script>
-    <script src="components/transaction/transaction.component.js"></script>
-    <script src="components/transaction-add-update-modal/transaction-add-update-modal.component.js"></script>
-    <script src="components/user-list/user.component.js"></script>
-    <script src="components/user-add-update-modal/user-add-update-modal.component.js"></script>
-    <script src="components/user-add-credit-modal/user-add-credit-modal.component.js"></script>
-  </head>
+  <!-- components -->
+  <script src="components/auth/auth.component.js"></script>
+  <script src="components/side-navigation/navigation.component.js"></script>
+  <script src="components/navigation/navigation.component.js"></script>
+  <script src="components/dashboard/dashboard.component.js"></script>
+  <script src="components/transaction/transaction.component.js"></script>
+  <script src="components/transaction-add-update-modal/transaction-add-update-modal.component.js"></script>
+  <script src="components/user-list/user.component.js"></script>
+  <script src="components/user-add-update-modal/user-add-update-modal.component.js"></script>
+  <script src="components/user-add-credit-modal/user-add-credit-modal.component.js"></script>
+</head>
 
-  <body class="g-sidenav-show" style="background-color: #a4a3a3;">
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/plugins/angular-dropdown-multiselect/angularjs-dropdown-multiselect.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/plugins/ui/moment/moment.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/plugins/tables/datatables/datatables.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/plugins/tables/datatables/extensions/responsive.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/theme/layout_1/js/datatable.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/plugins/angular-dropdown-multiselect/angularjs-dropdown-multiselect.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/plugins/angular-ui-select/select.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/plugins/fancybox/js/fancybox.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="assets/theme/global/js/plugins/select2/js/select2.min.js"
-    ></script>
-    <script src="assets/js/core/popper.min.js"></script>
-    <script src="assets/js/core/bootstrap.min.js"></script>
-    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="assets/js/plugins/chartjs.min.js"></script>
-	<div class="row">
-		<div class="col-lg-3">
-			<side-navigation></side-navigation>
-		</div>
-		<div class="col-lg-9">
-			<main class="main-content position-relative border-radius-lg">
-				<navigation></navigation>
-				<div class="page-content">
-				  <div class="content-wrapper">
-					<div ng-view class="view-frame" id="cnt"></div>
-				  </div>
-				  <!-- Main content -->
-				  <!-- /main content -->
+<body class="g-sidenav-show" style="background-color: #a4a3a3;">
+  <script type="text/javascript"
+    src="assets/theme/global/js/plugins/angular-dropdown-multiselect/angularjs-dropdown-multiselect.min.js"></script>
+  <script type="text/javascript" src="assets/theme/global/js/plugins/ui/moment/moment.min.js"></script>
+  <script type="text/javascript" src="assets/theme/global/js/plugins/tables/datatables/datatables.min.js"></script>
+  <script type="text/javascript"
+    src="assets/theme/global/js/plugins/tables/datatables/extensions/responsive.min.js"></script>
+  <script type="text/javascript" src="assets/theme/layout_1/js/datatable.js"></script>
+  <script type="text/javascript"
+    src="assets/theme/global/js/plugins/angular-dropdown-multiselect/angularjs-dropdown-multiselect.min.js"></script>
+  <script type="text/javascript" src="assets/theme/global/js/plugins/angular-ui-select/select.min.js"></script>
+  <script type="text/javascript" src="assets/theme/global/js/plugins/fancybox/js/fancybox.min.js"></script>
+  <script type="text/javascript" src="assets/theme/global/js/plugins/select2/js/select2.min.js"></script>
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap.min.js"></script>
+  <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="assets/js/plugins/chartjs.min.js"></script>
+  <div class="row">
+    <div class="col-lg-3">
+      <side-navigation></side-navigation>
+    </div>
+    <div class="col-lg-9">
+      <main class="main-content position-relative border-radius-lg">
+        <navigation></navigation>
+        <div class="page-content">
+          <div class="content-wrapper">
+            <div ng-view class="view-frame" id="cnt"></div>
+          </div>
+          <!-- Main content -->
+          <!-- /main content -->
           <footer class="d-flex justify-content-center mt-5 p-3">
             <span class="font-weight-bolder">All rights reserved by MarkCoders</span>
           </footer>
-				</div>
-			</main>
-		</div>
-	</div>
-    <!-- <navigation></navigation> -->
-    <!-- Page content -->
-    <!-- /page content -->
-    
-  </body>
+        </div>
+      </main>
+    </div>
+  </div>
+  <!-- <navigation></navigation> -->
+  <!-- Page content -->
+  <!-- /page content -->
+
+</body>
+
 </html>

@@ -4,8 +4,7 @@
       <div class="card mb-4">
         <div class="card-header pb-0 d-flex justify-content-between">
           <h5>Transactions</h5>
-          <div class="d-flex align-items-center justify-content-between px-2"
-            ng-if="$ctrl.activeUserType == $ctrl.userTypes.AGENT">
+          <div ng-if="$ctrl.activeUserType == $ctrl.userTypes.AGENT">
             <button type="button" class="btn btn-success" style="margin-right: 6px;" ng-click="$ctrl.showAddModal()">
               <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
@@ -32,8 +31,46 @@
               </span>
             </button>
           </div>
+
         </div>
         <div class="card-body px-0 pt-0 pb-2">
+          <div class="d-flex justify-content-end">
+            <div class="pr-2 d-flex justify-content-center background-button"
+              ng-click="$ctrl.filterList('all')" ng-class="{'active': $ctrl.activeTransactionType == 'all'}">
+              <span>
+                All
+              </span>
+            </div>
+            <div class="pr-2 d-flex justify-content-center background-button"
+              ng-click="$ctrl.filterList($ctrl.transactionType.COMPLETED)"
+              ng-class="{'active': $ctrl.activeTransactionType == $ctrl.transactionType.COMPLETED}">
+              <span>
+                Completed
+              </span>
+            </div>
+            <div class="pr-2 d-flex justify-content-center background-button"
+              ng-click="$ctrl.filterList($ctrl.transactionType.REJECTED)"
+              ng-class="{'active': $ctrl.activeTransactionType == $ctrl.transactionType.REJECTED}">
+              <span>
+                Rejected
+              </span>
+            </div>
+            <div class="pr-2 d-flex justify-content-center background-button"
+              ng-click="$ctrl.filterList($ctrl.transactionType.PENDING_FOR_APPROVAL)"
+              ng-class="{'active': $ctrl.activeTransactionType == $ctrl.transactionType.PENDING_FOR_APPROVAL}">
+              <span>
+                Pending
+              </span>
+            </div>
+            <div class="pr-2 d-flex justify-content-center background-button"
+              ng-click="$ctrl.filterList($ctrl.transactionType.APPROVED)"
+              ng-class="{'active': $ctrl.activeTransactionType == $ctrl.transactionType.APPROVED}">
+              <span>
+                Approved
+              </span>
+            </div>
+
+          </div>
           <div class="table table-responsive p-0">
             <table class="table align-items-center mb-0">
               <thead>
@@ -66,7 +103,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="transaction in $ctrl.transactionList">
+                <tr ng-repeat="transaction in $ctrl.filteredList">
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
@@ -82,10 +119,10 @@
                     <p class="text-xs font-weight-bold mb-0" ng-bind="transaction.otp_for_transaction"></p>
                   </td>
                   <td class="align-middle text-center text-sm">
-                    <p class="text-xs font-weight-bold mb-0" ng-bind="transaction.recieving_currency"></p>
+                    <p class="text-xs font-weight-bold mb-0" ng-bind="transaction.recieving_currency.name"></p>
                   </td>
                   <td class="align-middle text-center text-sm">
-                    <p class="text-xs font-weight-bold mb-0" ng-bind="transaction.target_currency"></p>
+                    <p class="text-xs font-weight-bold mb-0" ng-bind="transaction.target_currency.name"></p>
                   </td>
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold">{{transaction.manager_id != null ?

@@ -67,7 +67,6 @@ angular.
         }
         
         ctrl.findTransactionUsingOtp = function (){
-          debugger
           $rootScope.$broadcast("Transaction:ShowCompleteModal", {otp: ctrl.otp, modalType: ctrl.modalType.TOBECOMPLETED});
         }
 

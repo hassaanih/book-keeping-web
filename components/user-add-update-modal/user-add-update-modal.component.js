@@ -48,7 +48,7 @@ angular.module("component").component("userAddUpdate", {
       ctrl.find = function (id) {
         UserService.find(id).then(
           function success(response) {
-            ctrl.user = response.data.user;
+            ctrl.user = response.data.user; 
           },
           function error(response) {
             console.log(response);

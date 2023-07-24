@@ -31,7 +31,10 @@ angular.module("component").component("transaction", {
       ctrl.modalType = Constant.TransactionModalType;
       ctrl.userTypes = Constant.UserType;
       ctrl.activeUserType = localStorage.getItem("user_type_id");
-      ctrl.lookupCurrencies = []; 
+      ctrl.lookupCurrencies = [];
+      ctrl.filteredList = [];
+      ctrl.transactionType = Constant.TransactionStatus;
+      ctrl.activeTransactionType = 'all';
 
       ctrl.$onInit = function () {
         ctrl.user.full_name = localStorage.getItem("full_name");
@@ -46,6 +49,7 @@ angular.module("component").component("transaction", {
         TransactionService.list().then(
           function success(response){
             ctrl.transactionList = response.data.data;
+            ctrl.filteredList = response.data.data;
             console.log(ctrl.transactionList);
           },
           function error(response){
@@ -54,7 +58,39 @@ angular.module("component").component("transaction", {
         )
       }
 
-      
+      ctrl.filterList = function(status){
+        console.log(status);
+        switch(status){
+          case ctrl.transactionType.PENDING_FOR_APPROVAL:
+            ctrl.filteredList = ctrl.transactionList.filter(item => {
+              return item.transaction_status == status;
+            })
+            ctrl.activeTransactionType = status;
+            break;
+          case ctrl.transactionType.APPROVED:
+            ctrl.filteredList = ctrl.transactionList.filter(item => {
+              return item.transaction_status == status;
+            })
+            ctrl.activeTransactionType = status;
+            break;
+          case ctrl.transactionType.COMPLETED:
+            ctrl.filteredList = ctrl.transactionList.filter(item => {
+              return item.transaction_status == status;
+            })
+            ctrl.activeTransactionType = status;
+            break;
+          case ctrl.transactionType.REJECTED:
+            ctrl.filteredList = ctrl.transactionList.filter(item => {
+              return item.transaction_status == status;
+            })
+            ctrl.activeTransactionType = status;
+            break;
+          default: 
+            ctrl.filteredList = ctrl.transactionList;
+            ctrl.activeTransactionType = status;
+            break;
+        }
+      }
 
       ctrl.approve = function(id){
         TransactionService.approve(id).then(
