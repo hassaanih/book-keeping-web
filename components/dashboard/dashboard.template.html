@@ -15,7 +15,7 @@
           <h3 class="text-center font-weight-bold text-secondary"
             ng-bind="$ctrl.transactionData.transactions_pending_for_approval"></h3>
         </div>
-        <h6 class="text-capitalize text-center">Pending For Approval</h6>
+        <h6 class="text-capitalize text-center" translate-language="Pending For Approval">Pending For Approval</h6>
       </div>
     </div>
     <div class="col-lg-3 mb-lg-0 mb-4">
@@ -29,7 +29,7 @@
         <div class="card-body p-3">
           <h3 class="font-weight-bold text-center text-info" ng-bind="$ctrl.transactionData.transactions_approved"></h3>
         </div>
-        <h6 class="text-capitalize text-center">Approved</h6>
+        <h6 class="text-capitalize text-center" translate-language="Approved">Approved</h6>
 
       </div>
     </div>
@@ -46,7 +46,7 @@
           </h3>
 
         </div>
-        <h6 class="text-capitalize text-center">Rejected</h6>
+        <h6 class="text-capitalize text-center" translate-language="Rejected">Rejected</h6>
 
       </div>
     </div>
@@ -63,7 +63,7 @@
           "></h3>
 
         </div>
-        <h6 class="text-capitalize text-center">Completed</h6>
+        <h6 class="text-capitalize text-center" translate-language="Completed">Completed</h6>
       </div>
     </div>
   </div>
@@ -80,9 +80,9 @@
           <table class="table align-items-center">
             <tbody>
               <tr>
-                <th class="text-center">Currency Id</th>
-                <th class="text-center">Currency Name</th>
-                <th class="text-center">Balance</th>
+                <th class="text-center" translate-language="Currency Id">Currency Id</th>
+                <th class="text-center" translate-language="Currency Name">Currency Name</th>
+                <th class="text-center" translate-language="Balance">Balance</th>
               </tr>
               <tr ng-repeat="credit in $ctrl.creditData">
                 <td class="w-30">

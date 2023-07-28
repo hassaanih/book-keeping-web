@@ -3,7 +3,7 @@
     <div class="col-12">
       <div class="card mb-4">
         <div class="card-header pb-0 d-flex justify-content-between">
-          <h5>Transactions</h5>
+          <h5 translate-language="Transactions">Transactions</h5>
           <div ng-if="$ctrl.activeUserType == $ctrl.userTypes.AGENT">
             <button type="button" class="btn btn-success" style="margin-right: 6px;" ng-click="$ctrl.showAddModal()">
               <span>
@@ -13,7 +13,7 @@
                     d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
                 </svg>
               </span>
-              <span style="margin-left: 2px;">
+              <span style="margin-left: 2px;" translate-language="New transaction">
                 New transaction
               </span>
             </button>
@@ -26,7 +26,7 @@
                   </path>
                 </svg>
               </span>
-              <span style="margin-left: 3px;">
+              <span style="margin-left: 3px;" translate-language="Search Using Otp">
                 Search Using Otp
               </span>
             </button>
@@ -37,35 +37,35 @@
           <div class="d-flex justify-content-end">
             <div class="pr-2 d-flex justify-content-center background-button"
               ng-click="$ctrl.filterList('all')" ng-class="{'active': $ctrl.activeTransactionType == 'all'}">
-              <span>
+              <span translate-language="All">
                 All
               </span>
             </div>
             <div class="pr-2 d-flex justify-content-center background-button"
               ng-click="$ctrl.filterList($ctrl.transactionType.COMPLETED)"
               ng-class="{'active': $ctrl.activeTransactionType == $ctrl.transactionType.COMPLETED}">
-              <span>
+              <span translate-language="Completed">
                 Completed
               </span>
             </div>
             <div class="pr-2 d-flex justify-content-center background-button"
               ng-click="$ctrl.filterList($ctrl.transactionType.REJECTED)"
               ng-class="{'active': $ctrl.activeTransactionType == $ctrl.transactionType.REJECTED}">
-              <span>
+              <span translate-language="Rejected">
                 Rejected
               </span>
             </div>
             <div class="pr-2 d-flex justify-content-center background-button"
               ng-click="$ctrl.filterList($ctrl.transactionType.PENDING_FOR_APPROVAL)"
               ng-class="{'active': $ctrl.activeTransactionType == $ctrl.transactionType.PENDING_FOR_APPROVAL}">
-              <span>
+              <span translate-language="Pending">
                 Pending
               </span>
             </div>
             <div class="pr-2 d-flex justify-content-center background-button"
               ng-click="$ctrl.filterList($ctrl.transactionType.APPROVED)"
               ng-class="{'active': $ctrl.activeTransactionType == $ctrl.transactionType.APPROVED}">
-              <span>
+              <span translate-language="Approved">
                 Approved
               </span>
             </div>
@@ -75,28 +75,28 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                    Initaitor Name
+                  <th translate-language="Initiator Name" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    Initiator Name
                   </th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                  <th translate-language="Total Balance" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                     Total Balance
                   </th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                  <th translate-language="OTP" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                     OTP
                   </th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                    Recieving Currency
+                  <th translate-language="Receiving Currency" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    Receiving Currency
                   </th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                  <th translate-language="Target Currency" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                     Target Currency
                   </th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                  <th translate-language="Manager" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                     Manager
                   </th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                  <th translate-language="Status" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                     Status
                   </th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                  <th translate-language="Converted Amount" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                     Converted Amount
                   </th>
                   <th class="text-secondary opacity-7"></th>

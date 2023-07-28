@@ -2,7 +2,7 @@
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Transaction</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle" translate-language="Transaction">Transaction</h5>
         <a data-dismiss="modal" aria-label="Close" ng-click="$ctrl.closeModal()">
           <span aria-hidden="true"><svg
             xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@
       <div class="modal-body">
         <div class="row mb-2">
               <div class="col-lg-3">
-                <label class="form-label">Total Balance: </label>
+                <label class="form-label" translate-language="Total Balance">Total Balance: </label>
               </div>
               <div class="col-lg-9">
                 <input class="form-control" type="number" ng-model="$ctrl.transaction.balance" ng-disabled="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
@@ -32,7 +32,7 @@
         </div>
         <div class="row mb-2">
               <div class="col-lg-3">
-                <label class="form-label">Target Currency: </label>
+                <label class="form-label" translate-language="Target Currency">Target Currency: </label>
               </div>
               <div class="col-lg-9">
                 <select class="form-control" ng-model="$ctrl.transaction.target_currency_id" ng-disabled="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
@@ -44,7 +44,7 @@
         </div>
         <div class="row mb-2">
           <div class="col-lg-3">
-            <label class="form-label">Recieving Currency: </label>
+            <label class="form-label" translate-language="Receiving Currency">Receiving Currency: </label>
           </div>
           <div class="col-lg-9">
             <select class="form-control" ng-model="$ctrl.transaction.recieving_currency_id" ng-disabled="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
@@ -56,7 +56,7 @@
         </div>
         <div class="row mb-2">
               <div class="col-lg-3">
-                <label class="form-label">Converted Amount: </label>
+                <label class="form-label" translate-language="Converted Amount">Converted Amount: </label>
               </div>
               <div class="col-lg-9">
                 <input class="form-control" type="number" ng-model="$ctrl.transaction.converted_amount" ng-disabled="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
@@ -64,7 +64,7 @@
         </div>
         <div class="row mb-2">
           <div class="col-lg-3">
-            <label class="form-label">Contact Number: </label>
+            <label class="form-label" translate-language="Phone Number">Contact Number: </label>
           </div>
           <div class="col-lg-9">
             <input class="form-control" type="text" ng-model="$ctrl.transaction.contact_number">
@@ -72,7 +72,7 @@
     </div>
         <div class="row mb-2">
           <div class="col-lg-3">
-            <label class="form-label">Commision: </label>
+            <label class="form-label" translate-language="Commision">Commision: </label>
           </div>
           <div class="col-lg-9">
             <input class="form-control" type="number" ng-model="$ctrl.transaction.commision" ng-disabled="$ctrl.disableCommision || $ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
@@ -80,7 +80,7 @@
     </div>
         <div class="row mb-2">
               <div class="col-lg-3">
-                <label class="form-label">OTP: </label>
+                <label class="form-label" translate-language="OTP">OTP: </label>
               </div>
               <div class="col-lg-9">
                 <input class="form-control" type="text" ng-model="$ctrl.transaction.otp_for_transaction" disabled readonly>
@@ -89,7 +89,7 @@
         
         <div class="row mb-2" ng-show="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
               <div class="col-lg-3">
-                <label class="form-label">Reason to Reject: </label>
+                <label class="form-label" translate-language="Reason to Reject">Reason to Reject: </label>
               </div>
               <div class="col-lg-9">
                 <textarea class="form-control" ng-model="$ctrl.transaction.reason_for_reject"></textarea>
