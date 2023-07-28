@@ -6,6 +6,7 @@ angular.module("component").component("dashboard", {
     "$scope",
     "$location",
     "$routeParams",
+    "$rootScope",
     // "RevenueService",
     "DashboardService",
     "Constant",
@@ -13,6 +14,7 @@ angular.module("component").component("dashboard", {
       $scope,
       $location,
       $routeParams,
+      $rootScope,
       // RevenueService,
       DashboardService,
       Constant
@@ -24,6 +26,7 @@ angular.module("component").component("dashboard", {
       ctrl.transactionData = {};
       ctrl.creditData = [];
       ctrl.$onInit = function () {
+        $rootScope.$broadcast("Language::Change")
         ctrl.user.full_name = localStorage.getItem("full_name");
         if(ctrl.user.full_name == undefined){
           window.location.href = config.APP_URL + '#!/auth/signin';

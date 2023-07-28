@@ -33,6 +33,7 @@ angular.
           ctrl.isLogin = UserService.authenticate();
         });
         ctrl.$onInit = function () {
+          $rootScope.$broadcast("Language::Change")
           console.log(ctrl.isLogin);
           ctrl.activeUserType = localStorage.getItem("user_type_id");
           // setInterval(function(){

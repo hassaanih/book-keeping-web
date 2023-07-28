@@ -27,6 +27,7 @@ angular.module("component").component("userAddUpdate", {
       ctrl.isEditMode = false;
 
       ctrl.$onInit = function () {
+        $rootScope.$broadcast("Language::Change")
         ctrl.user = {};
       };
 

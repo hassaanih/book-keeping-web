@@ -28,13 +28,14 @@ angular.
         });
         // ctrl.isSuperAdmin = localStorage.getItem('user_type_id') == ctrl.Constant.UserType.SUPER_ADMIN ? true : false;
         ctrl.$onInit = function () {
+          $rootScope.$broadcast("Language::Change")
           // setInterval(function(){
             ctrl.getNotification();
           // }, 1000);
                 
         }
 
-        ctrl.currentLanguage = 'en';
+        ctrl.currentLanguage;
 
         ctrl.$postLink = function(){
           ctrl.isLogin = UserService.authenticate();
@@ -50,6 +51,17 @@ angular.
 
             }
           )
+        }
+
+        ctrl.changeLanguage = function (){
+          console.log(ctrl.currentLanguage)
+          if(ctrl.currentLanguage == true){
+            localStorage.setItem("currentLanguage", 'es')
+            $rootScope.$broadcast("Language::Change")
+          }else{
+            localStorage.setItem("currentLanguage", 'en')
+            $rootScope.$broadcast("Language::Change")
+          }
         }
 
         ctrl.markAsRead = function(){

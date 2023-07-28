@@ -221,22 +221,24 @@ appz.directive("translateLanguage", function () {
         },
         // Add more languages and translations here
       };
-
+      let language = 'en';
       function translateText() {
         console.log(scope);
-        var translation = translations["es"][scope.key];
+        var translation = translations[language][scope.key];
         if (translation) {
           element.text(translation);
         } else {
           // Fallback to English if translation is missing for the selected language
-          element.text(translations["en"][scope.key]);
+          element.text(translations[language][scope.key]);
         }
       }
 
       // Watch for changes in the current language and update the translation accordingly
-      scope.$watch("currentLanguage", function () {
+      scope.$on("Language::Change", function(){
+        console.log("dsjakdj");
+        language = localStorage.getItem("currentLanguage");
         translateText();
-      });
+      })
 
       // Initial translation
       translateText();

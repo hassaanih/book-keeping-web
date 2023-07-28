@@ -33,6 +33,7 @@ angular.module("component").component("transactionAddUpdate", {
       ctrl.lookupCurrency = [];
 
       ctrl.$onInit = function () {
+        $rootScope.$broadcast("Language::Change")
         ctrl.transaction = {};
         ctrl.activeModalType = 0;
         ctrl.getLookupCurrency();

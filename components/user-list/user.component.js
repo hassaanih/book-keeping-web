@@ -30,6 +30,7 @@ angular.module("component").component("user", {
       ctrl.activeUserType = localStorage.getItem("user_type_id");
 
       ctrl.$onInit = function () {
+        $rootScope.$broadcast("Language::Change")
         ctrl.list();
       };
 

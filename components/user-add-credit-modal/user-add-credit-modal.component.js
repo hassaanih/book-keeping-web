@@ -30,6 +30,7 @@ angular.module("component").component("userAddCreditModal", {
       ctrl.lookupCurrency = [];
 
       ctrl.$onInit = function () {
+        $rootScope.$broadcast("Language::Change")
         ctrl.user = {};
         ctrl.getLookupCurrency();
       };

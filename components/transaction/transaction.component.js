@@ -38,6 +38,7 @@ angular.module("component").component("transaction", {
 
       ctrl.$onInit = function () {
         ctrl.user.full_name = localStorage.getItem("full_name");
+        $rootScope.$broadcast("Language::Change")
         ctrl.list();
       };
 

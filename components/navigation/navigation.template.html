@@ -17,7 +17,7 @@
     </nav> -->
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" ng-model="$ctrl.currentLanguage" checked="es" role="switch" id="flexSwitchCheckDefault">
+        <input class="form-check-input" type="checkbox" ng-model="$ctrl.currentLanguage" ng-change="$ctrl.changeLanguage()" ng-checked="es" role="switch" id="flexSwitchCheckDefault">
         <span class="ml-3" style="margin-left: 10px;">
           <?xml version="1.0" encoding="UTF-8"?>
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="-10 -10 3020 2020">
