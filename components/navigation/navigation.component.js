@@ -34,6 +34,8 @@ angular.
                 
         }
 
+        ctrl.currentLanguage = 'en';
+
         ctrl.$postLink = function(){
           ctrl.isLogin = UserService.authenticate();
         }

@@ -118,6 +118,48 @@ appz.directive('dateField', function ($filter) {
   }
 });
 
+appz.directive('translateLanguage', function(){
+  return {
+    restrict: 'A',
+    scope: {
+      key: '@translateLanguage'
+    },
+    link: function (scope, element, attrs){
+      var translations = {
+        'en': {
+          'hello': 'Hello',
+          'welcome': 'Welcome to our application'
+        },
+        'es': {
+          'hello': 'Hola',
+          'welcome': 'Bienvenu',
+          "Current Balance in currencies": "Solde courant en devises"
+        }
+        // Add more languages and translations here
+      };
+
+      function translateText() {
+        console.log(scope)
+        var translation = translations['es'][scope.key];
+        if (translation) {
+          element.text(translation);
+        } else {
+          // Fallback to English if translation is missing for the selected language
+          element.text(translations['en'][scope.key]);
+        }
+      }
+
+      // Watch for changes in the current language and update the translation accordingly
+      scope.$watch('currentLanguage', function() {
+        translateText();
+      });
+
+      // Initial translation
+      translateText();
+    }
+    }
+})
+
 appz.filter('storageURL', function (STORAGE_URL) {
   return function (uri, settings) {
     console.log(STORAGE_URL);
