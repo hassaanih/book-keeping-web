@@ -28,6 +28,7 @@ angular.module("component").component("userAddCreditModal", {
       ctrl.user = {};
       ctrl.isEditMode = false;
       ctrl.lookupCurrency = [];
+      ctrl.error;
 
       ctrl.$onInit = function () {
         $rootScope.$broadcast("Language::Change")
@@ -76,7 +77,14 @@ angular.module("component").component("userAddCreditModal", {
               ctrl.closeModal();
             }
           },
-          function error(response) {}
+          function error(response) {
+            console.log(response);
+            if(response.status == 400){
+              ctrl.error = response.data.error;
+            }else{
+              appAlert('Something went wrong. Please contact admin');
+            }
+          }
         );
       };
 

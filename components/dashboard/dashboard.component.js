@@ -48,6 +48,7 @@ angular.module("component").component("dashboard", {
       // };
 
       ctrl.get = function () {
+        $rootScope.$broadcast("Language::Change")
         DashboardService.get().then(
           function success(response) {
             console.log(response.data);

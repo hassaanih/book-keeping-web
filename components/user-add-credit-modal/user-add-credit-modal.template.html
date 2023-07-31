@@ -25,6 +25,7 @@
               <option value="{{currency.id}}" ng-repeat="currency in $ctrl.lookupCurrency" ng-bind="currency.name"></option>
               
             </select>
+            <span class="text-danger" ng-repeat="error in $ctrl.error.currency_id" ng-bind="error"></span>
           </div>
         </div>
         <div class="row mb-2">
@@ -33,6 +34,7 @@
           </div>
           <div class="col-lg-9">
             <input class="form-control" type="number" ng-model="$ctrl.user.credit_balance" />
+            <span class="text-danger" ng-repeat="error in $ctrl.error.credit_balance" ng-bind="error"></span>
           </div>
         </div>
       </div>

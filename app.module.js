@@ -88,6 +88,15 @@ function getScope(elemId) {
   return angular.element(document.getElementById(elemId)).scope().$ctrl;
 }
 
+function appAlert(message){
+  return Snackbar.show({ 
+    showAction: false, 
+    text: message,
+    pos: 'top-right',
+    backgroundColor: 'red'
+  });
+}
+
 appz.filter("assetURL", function (ASSET_URL) {
   return function (uri, settings) {
     if (settings.showNoPhoto == true) return uri ? ASSET_URL + uri : NO_PHOTO;
@@ -500,3 +509,5 @@ appz.directive("fileVideoModel", [
     };
   },
 ]);
+
+

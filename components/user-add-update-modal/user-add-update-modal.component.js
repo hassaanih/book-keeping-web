@@ -60,6 +60,7 @@ angular.module("component").component("userAddUpdate", {
 
 
       ctrl.createUser = function () {
+        
         UserService.create(ctrl.user).then(
           function success(response) {
             console.log(response)
@@ -68,6 +69,11 @@ angular.module("component").component("userAddUpdate", {
           },
           function error(response) {
             ctrl.error = response.data.error;
+            if(response.status == 400){
+              ctrl.error = response.data.error;
+            }else{
+              appAlert('Something went wrong. Please contact admin');
+            }
           }
         );
       };

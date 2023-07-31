@@ -21,6 +21,7 @@
           </div>
           <div class="col-lg-9">
             <input class="form-control" type="text" ng-model="$ctrl.user.name" />
+            <span class="text-danger" ng-repeat="error in $ctrl.error.name" ng-bind="error"></span>
           </div>
         </div>
         <div class="row mb-2">
@@ -33,6 +34,7 @@
               <option value="manager">Manager</option>
               <option value="agent">Agent</option>
             </select>
+            <span class="text-danger" ng-repeat="error in $ctrl.error.user_type_id" ng-bind="error"></span>
           </div>
         </div>
         <div class="row mb-2">
@@ -41,6 +43,7 @@
           </div>
           <div class="col-lg-9">
             <input class="form-control" type="text" ng-model="$ctrl.user.email" placeholder="abc@mail.com" />
+            <span class="text-danger" ng-repeat="error in $ctrl.error.email" ng-bind="error"></span>
           </div>
         </div>
         <div class="row mb-2">
@@ -50,6 +53,8 @@
           <div class="col-lg-9">
             <input class="form-control" type="password" ng-model="$ctrl.user.password"
               placeholder="Leave it blank if you donot wish to change password." />
+            <span class="text-danger" ng-repeat="error in $ctrl.error.password" ng-bind="error"></span>
+
           </div>
         </div>
         <div class="row mb-2">
@@ -58,6 +63,7 @@
           </div>
           <div class="col-lg-9">
             <input class="form-control" type="text" ng-model="$ctrl.user.contact_number" />
+            <span class="text-danger" ng-repeat="error in $ctrl.error.contact_number" ng-bind="error"></span>
           </div>
         </div>
         <div class="row mb-2">
@@ -66,6 +72,7 @@
           </div>
           <div class="col-lg-9">
             <input class="form-control" type="number" ng-model="$ctrl.user.assigned_balance" />
+            <span class="text-danger" ng-repeat="error in $ctrl.error.assigned_balance" ng-bind="error"></span>
           </div>
         </div>
         <div class="row mt-4 p-3" ng-show="$ctrl.isEditMode">
