@@ -31,6 +31,7 @@ angular.module("component").component("transactionAddUpdate", {
       ctrl.disableCommision = true;
       ctrl.TransactionStatus = Constant.TransactionStatus;
       ctrl.lookupCurrency = [];
+      ctrl.error;
 
       ctrl.$onInit = function () {
         $rootScope.$broadcast("Language::Change")
@@ -138,7 +139,13 @@ angular.module("component").component("transactionAddUpdate", {
               $rootScope.$broadcast("Update::List");
             }
           },
-          function error(response) {}
+          function error(response) {
+            if(response.status == 400){
+              ctrl.error = response.data.errors;
+            }else{
+              appAlert('Something went wrong. Please contact admin');
+            }
+          }
         );
       };
 
@@ -150,7 +157,13 @@ angular.module("component").component("transactionAddUpdate", {
               $rootScope.$broadcast("Update::List");
             }
           },
-          function error(response) {}
+          function error(response) {
+            if(response.status == 400){
+              ctrl.error = response.data.errors;
+            }else{
+              appAlert('Something went wrong. Please contact admin');
+            }
+          }
         );
       };
 
@@ -179,7 +192,11 @@ angular.module("component").component("transactionAddUpdate", {
             $("#transaction-modal").modal("hide");
           },
           function error(response) {
-            ctrl.error = response.data.error;
+            if(response.status == 400){
+              ctrl.error = response.data.errors;
+            }else{
+              appAlert('Something went wrong. Please contact admin');
+            }
           }
         );
       };
@@ -192,7 +209,13 @@ angular.module("component").component("transactionAddUpdate", {
               ctrl.closeModal();
             }
           },
-          function error(response) {}
+          function error(response) {
+            if(response.status == 400){
+              ctrl.error = response.data.errors;
+            }else{
+              appAlert('Something went wrong. Please contact admin');
+            }
+          }
         );
       };
 

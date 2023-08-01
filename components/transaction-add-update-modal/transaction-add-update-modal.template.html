@@ -28,6 +28,7 @@
               </div>
               <div class="col-lg-9">
                 <input class="form-control" type="number" ng-model="$ctrl.transaction.balance" ng-disabled="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
+                <span class="text-danger" ng-repeat="error in $ctrl.error.balance" ng-bind="error"></span>
               </div>
         </div>
         <div class="row mb-2">
@@ -40,6 +41,8 @@
                   <option ng-value="currency.id" ng-repeat="currency in $ctrl.lookupCurrency" ng-bind="currency.name"></option>
                   
                 </select>
+                <span class="text-danger" ng-repeat="error in $ctrl.error.target_currency_id" ng-bind="error"></span>
+
               </div>
         </div>
         <div class="row mb-2">
@@ -52,6 +55,7 @@
               <option ng-value="currency.id" ng-repeat="currency in $ctrl.lookupCurrency" ng-bind="currency.name"></option>
               
             </select>
+            <span class="text-danger" ng-repeat="error in $ctrl.error.recieving_currency_id" ng-bind="error"></span>
           </div>
         </div>
         <div class="row mb-2">
@@ -60,6 +64,7 @@
               </div>
               <div class="col-lg-9">
                 <input class="form-control" type="number" ng-model="$ctrl.transaction.converted_amount" ng-disabled="$ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
+                <span class="text-danger" ng-repeat="error in $ctrl.error.converted_amount" ng-bind="error"></span>
               </div>
         </div>
         <div class="row mb-2">
@@ -68,6 +73,7 @@
           </div>
           <div class="col-lg-9">
             <input class="form-control" type="text" ng-model="$ctrl.transaction.contact_number">
+            <span class="text-danger" ng-repeat="error in $ctrl.error.contact_number" ng-bind="error"></span>
           </div>
     </div>
         <div class="row mb-2">
@@ -76,6 +82,7 @@
           </div>
           <div class="col-lg-9">
             <input class="form-control" type="number" ng-model="$ctrl.transaction.commision" ng-disabled="$ctrl.disableCommision || $ctrl.modalType.TOBEREJECTED == $ctrl.activeModalType || $ctrl.modalType.TOBECOMPLETED == $ctrl.activeModalType">
+            <span class="text-danger" ng-repeat="error in $ctrl.error.commision" ng-bind="error"></span>
           </div>
     </div>
         <div class="row mb-2">
@@ -84,6 +91,7 @@
               </div>
               <div class="col-lg-9">
                 <input class="form-control" type="text" ng-model="$ctrl.transaction.otp_for_transaction" disabled readonly>
+                <span class="text-danger" ng-repeat="error in $ctrl.error.otp_for_transaction" ng-bind="error"></span>
               </div>
         </div>
         
@@ -93,6 +101,7 @@
               </div>
               <div class="col-lg-9">
                 <textarea class="form-control" ng-model="$ctrl.transaction.reason_for_reject"></textarea>
+                <span class="text-danger" ng-repeat="error in $ctrl.error.reason_for_reject" ng-bind="error"></span>
               </div>
         </div>
       </div>
