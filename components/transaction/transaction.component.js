@@ -97,11 +97,22 @@ angular.module("component").component("transaction", {
         TransactionService.approve(id).then(
           function success(response){
             if(response.status == 200){
+              Swal.fire({
+                icon: "success",
+                title: "Transaction Approved.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
               ctrl.list();
             }
           },
           function error(response){
-
+            Swal.fire({
+              icon: "error",
+              title: "Transaction not approved.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           }
         )
       }

@@ -136,6 +136,12 @@ angular.module("component").component("transactionAddUpdate", {
           function success(response) {
             if (response.status == 200) {
               ctrl.closeModal();
+              Swal.fire({
+                icon: "success",
+                title: "Transaction Rejected.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
               $rootScope.$broadcast("Update::List");
             }
           },

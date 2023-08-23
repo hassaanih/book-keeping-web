@@ -19,7 +19,7 @@ angular.module("myApp").config([
 
     // set router
     $routeProvider
-      .when("/auth/:action", { template: "<auth></auth>" })
+      .when("/auth/:action", { template: "<auth></auth>" , active: 'login'})
       .when("/pages", { template: "<page-list></page-list>" })
       .when("/dashboard", { template: "<dashboard></dashboard>", active: 'dashboard' })
       .when("/transaction", { template: "<transaction></transaction>", active: 'transaction' })

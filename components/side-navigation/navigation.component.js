@@ -30,11 +30,13 @@ angular.
         // ctrl.isSuperAdmin = localStorage.getItem('user_type_id') == ctrl.Constant.UserType.SUPER_ADMIN ? true : false;
         $scope.$on('Route::change', function() {
           console.log("Route::change");
+          console.log(ctrl.route.active);
           ctrl.isLogin = UserService.authenticate();
+          ctrl.activeUserType = localStorage.getItem("user_type_id");
         });
         ctrl.$onInit = function () {
           $rootScope.$broadcast("Language::Change")
-          console.log(ctrl.isLogin);
+          console.log(ctrl.route);
           ctrl.activeUserType = localStorage.getItem("user_type_id");
           // setInterval(function(){
           //   NotificationService.getNotifications().then(
