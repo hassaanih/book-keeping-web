@@ -10,11 +10,13 @@ angular.
       'NotificationService',
       'UserService',
       'Constant',
+      '$route',
       function NavigationController($scope,
         $rootScope,
         NotificationService, 
         UserService,
-        Constant) {
+        Constant,
+        $route) {
         var ctrl = this;
         ctrl.user = {"full_name" : "Admin"};
         ctrl.notifications = [];
@@ -22,20 +24,23 @@ angular.
         ctrl.Constant = Constant;
         ctrl.modalType = Constant.TransactionModalType;
         ctrl.otp = '';
+        ctrl.route = $route;
+        ctrl.isCurrentLanguage = true;
+        ctrl.currentLanguage;
         $scope.$on('Route::change', function() {
           console.log("Route::change");
           ctrl.isLogin = UserService.authenticate();
         });
         // ctrl.isSuperAdmin = localStorage.getItem('user_type_id') == ctrl.Constant.UserType.SUPER_ADMIN ? true : false;
         ctrl.$onInit = function () {
+          ctrl.changeLanguage();
           $rootScope.$broadcast("Language::Change")
           // setInterval(function(){
             ctrl.getNotification();
           // }, 1000);
-                
         }
 
-        ctrl.currentLanguage;
+        
 
         ctrl.$postLink = function(){
           ctrl.isLogin = UserService.authenticate();
@@ -55,10 +60,12 @@ angular.
 
         ctrl.changeLanguage = function (){
           console.log(ctrl.currentLanguage)
-          if(ctrl.currentLanguage == true){
+          if(ctrl.isCurrentLanguage == true){
+            ctrl.currentLanguage = 'es';
             localStorage.setItem("currentLanguage", 'es')
             $rootScope.$broadcast("Language::Change")
           }else{
+            ctrl.currentLanguage = 'en';
             localStorage.setItem("currentLanguage", 'en')
             $rootScope.$broadcast("Language::Change")
           }

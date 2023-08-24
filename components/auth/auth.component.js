@@ -15,6 +15,7 @@ angular.module("component").component("auth", {
       $routeParams) {
       var ctrl = this;
       ctrl.user = {};
+      ctrl.errors = {};
 
       ctrl.$onInit = function () {
         if ($routeParams.action == "logout") ctrl.logout();
@@ -38,6 +39,7 @@ angular.module("component").component("auth", {
       };
 
       ctrl.login = function () {
+        ctrl.errors = {};
         UserService.login(ctrl.user).then(
           function successCallback(response) {
             console.log(response);
@@ -54,7 +56,8 @@ angular.module("component").component("auth", {
           },
           function errorCallback(response) {
             if (response.status == 400) {
-              ctrl.errors = response.data.messages;
+              ctrl.errors = response.data.error;
+              console.log(ctrl.errors);
             }
             //appAlert('', 'An unexpected error has occured. Please contact site administrator.', 'error');
           }

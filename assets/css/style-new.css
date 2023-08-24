@@ -14,3 +14,24 @@
     box-shadow: inset 0px 0px 4px 0px grey;
     
 }
+
+.french-flag-span{
+    padding-left: 3px;
+    padding-right: 8px;
+}
+
+.grey-body {
+    background: #999; /* Grey to darker grey gradient */
+    padding: 20px;
+    border-radius: 10px;
+    background-image: url('../img/repeating-triangles.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* transition: transform 0.3s ease; Smooth transition for scale effect */
+  }
+  
+  /* Hover effect to scale the element on hover */
+  .grey-body:hover {
+    /* transform: scale(1.1); Scale up the element on hover */
+    cursor: pointer; /* Change cursor to indicate interactivity */
+  }

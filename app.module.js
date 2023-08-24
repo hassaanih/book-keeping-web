@@ -232,7 +232,6 @@ appz.directive("translateLanguage", function () {
       };
       let language = 'en';
       function translateText() {
-        console.log(scope);
         var translation = translations[language][scope.key];
         if (translation) {
           element.text(translation);
@@ -244,7 +243,6 @@ appz.directive("translateLanguage", function () {
 
       // Watch for changes in the current language and update the translation accordingly
       scope.$on("Language::Change", function(){
-        console.log("dsjakdj");
         language = localStorage.getItem("currentLanguage");
         translateText();
       })

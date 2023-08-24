@@ -10,6 +10,7 @@
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
                 <div class="card-body">
+                  <span ng-repeat="error in $ctrl.errors.general" class="text-danger text-xs font-weight-bolder">{{error}}</span>
                   <form role="form" ng-submit="$ctrl.login()">
                     <div class="mb-3">
                       <input type="email" class="form-control form-control-md" ng-model="$ctrl.user.email" placeholder="Email" aria-label="Email">
@@ -17,6 +18,7 @@
                     <div class="mb-3">
                       <input type="password" class="form-control form-control-md" ng-model="$ctrl.user.password" placeholder="Password" aria-label="Password">
                     </div>
+
                     <!-- <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe">
                       <label class="form-check-label" for="rememberMe">Remember me</label>

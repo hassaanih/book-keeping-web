@@ -1,5 +1,5 @@
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
-  data-scroll="false" ng-show="$ctrl.isLogin">
+  data-scroll="false" ng-show="$ctrl.route.current.active != 'login'">
   <div class="container-fluid py-1 px-3">
     <!-- <nav aria-label="breadcrumb">
       <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
@@ -17,8 +17,8 @@
     </nav> -->
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
       <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" ng-model="$ctrl.currentLanguage" ng-change="$ctrl.changeLanguage()" ng-checked="es" role="switch" id="flexSwitchCheckDefault">
-        <span class="ml-3" style="margin-left: 10px;">
+        <input class="form-check-input" type="checkbox" ng-model="$ctrl.isCurrentLanguage" ng-change="$ctrl.changeLanguage()" ng-class="{'toggle-switch-on' : $ctrl.isCurrentLanguage == true, 'toggle-switch-off': $ctrl.isCurrentLanguage == false}" role="switch" id="flexSwitchCheckDefault">
+        <span class="ml-3 french-flag-span">
           <?xml version="1.0" encoding="UTF-8"?>
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="-10 -10 3020 2020">
             <g id="French_Flag_by_Adam_Stanislav">
@@ -54,12 +54,7 @@
             </div>
           </a>
         </li>
-        <li class="nav-item px-3 d-flex align-items-center">
-          <a href="javascript:;" class="nav-link text-white p-0">
-            <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-          </a>
-        </li>
-        <li class="nav-item dropdown pe-2 d-flex align-items-center">
+        <li class="nav-item dropdown pe-2 px-3 d-flex align-items-center">
           <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
             aria-expanded="false">
             <i class="fa fa-bell cursor-pointer"></i>
